@@ -1,24 +1,17 @@
-
 services:
-
-  backend:
-    build: ./backend
-    container_name: reservas_backend
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      - DB_SERVER=db
-      - DB_USER=sa
-      - DB_PASSWORD=YourStrong!Passw0rd
-      - DB_NAME=reservas
-
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: reservas_db
     environment:
-      SA_PASSWORD: "YourStrong!Passw0rd"
+      SA_PASSWORD: "${DB_PASSWORD}"
       ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
     ports:
       - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+      - ./database/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    restart: unless-stopped
+
+volumes:
+  sql_data:

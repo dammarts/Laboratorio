@@ -1,6 +1,13 @@
 from fastapi import FastAPI
-from app.controllers import reserva_controller
+from app.controller import horario_controller
 
-app = FastAPI()
+app = FastAPI(
+    title="Sistema de Reservas de Laboratorios",
+    version="1.0.0"
+)
 
-app.include_router(reserva_controller.router) 
+@app.get("/")
+def root():
+    return {"mensaje": "API funcionando correctamente"}
+
+app.include_router(horario_controller.router)
