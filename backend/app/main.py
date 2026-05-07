@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.controllers import reserva_controller
+from app.controller import reserva_controller
+from app.controller import laboratorio_controller
 
 app = FastAPI()
 
