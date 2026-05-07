@@ -3,6 +3,7 @@ from app.controller import reserva_controller
 from app.controller import laboratorio_controller
 from app.controller import horario_controller
 from app.config.db import engine, Base
+# pyrefly: ignore [missing-import]
 import sqlalchemy
 import time
 
