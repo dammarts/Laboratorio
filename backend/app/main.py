@@ -5,3 +5,4 @@ from app.controller import laboratorio_controller
 app = FastAPI()
 
 app.include_router(reserva_controller.router) 
+app.include_router(laboratorio_controller.router) 
