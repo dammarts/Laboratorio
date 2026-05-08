@@ -14,7 +14,8 @@ app = FastAPI(
 
 
 def init_db():
-    root_url = "mssql+pymssql://sa:ServerAdmin2026@db:1433/master"
+    import os
+    root_url = f"mssql+pymssql://sa:{os.getenv('DB_PASSWORD')}@db:1433/master"
     retries = 5
     while retries > 0:
         try:
