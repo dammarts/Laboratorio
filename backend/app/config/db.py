@@ -5,22 +5,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DB_SERVER   = os.getenv("DB_SERVER", "localhost")
+DB_SERVER   = os.getenv("DB_SERVER", "db")
 DB_PORT     = os.getenv("DB_PORT", "1433")
 DB_NAME     = os.getenv("DB_NAME", "reservas")
 DB_USER     = os.getenv("DB_USER", "sa")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "Admin1234!")
 
-DATABASE_URL = (
-    f"mssql+pyodbc://{DB_USER}:{DB_PASSWORD}"
-    f"@{DB_SERVER},{DB_PORT}/{DB_NAME}"
-    f"?driver=ODBC+Driver+17+for+SQL+Server"
-)
+# AQUÍ ESTÁ LA MAGIA: Usamos pymssql
+DATABASE_URL = f"mssql+pymssql://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
 
 engine = create_engine(DATABASE_URL, echo=False)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
-
 
 def get_db() -> Session:
     db = SessionLocal()
@@ -28,7 +24,6 @@ def get_db() -> Session:
         yield db
     finally:
         db.close()
-
 
 def get_connection():
     import pymssql
