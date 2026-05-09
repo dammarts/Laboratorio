@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
 from app.schemas.horario_schema import HorarioCreate, HorarioUpdate, BloqueoCreate
-from app.models.reserva import HorarioLaboratorio
+from app.models.horario import HorarioLaboratorio
 from app.models.laboratorio import Laboratorio
 import app.repositories.horario_repository as horario_repo
 

@@ -12,7 +12,7 @@ from app.services.horario_service import (
     desbloquear_horario
 )
 from app.schemas.horario_schema import HorarioCreate, BloqueoCreate
-from app.models.reserva import HorarioLaboratorio
+from app.models.horario import HorarioLaboratorio
 from app.models.laboratorio import Laboratorio
 
 
@@ -400,8 +400,8 @@ class TestHorarioRepositoryAvanzado:
         }
 
         from app.repositories.horario_repository import crear_horario
-        from app.models.reserva import HorarioLaboratorio
-
+        from app.models.horario import HorarioLaboratorio
+        
         with patch("app.repositories.horario_repository.HorarioLaboratorio", return_value=horario_disponible):
             resultado = crear_horario(db, datos)
             assert db.add.called
