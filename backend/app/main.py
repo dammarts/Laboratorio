@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
 from app.controller import horario_controller
-from app.config.db import engine, Base
+from app.config.db import engine
+from app.models.base import Base
 # pyrefly: ignore [missing-import]
 import sqlalchemy
 import time
