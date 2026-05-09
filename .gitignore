@@ -16,3 +16,5 @@ __pycache__/
 .claude.json
 .code/
 CLAUDE.md
+docs/decisiones-reservas.md
+docs/docs_reservas.md
