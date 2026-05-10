@@ -23,7 +23,7 @@ class LaboratorioUpdate(BaseModel):
 
 # 4. El esquema de respuesta
 class LaboratorioResponse(LaboratorioBase):
-    id: int
+    laboratorio_id: int
 
     class Config:
         from_attributes = True 

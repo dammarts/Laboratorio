@@ -3,7 +3,7 @@ from sqlalchemy import and_
 from datetime import date
 from typing import Optional
 
-from app.models.reserva import HorarioLaboratorio
+from app.models.horario import HorarioLaboratorio
 
 
 def crear_horario(db: Session, datos: dict) -> HorarioLaboratorio:

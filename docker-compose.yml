@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+compose
+
+>>>>>>> origin/main
 services:
 
   backend:
@@ -9,6 +14,11 @@ services:
       - db
     environment:
       - DB_SERVER=db
+<<<<<<< HEAD
+      - DB_USER=sa
+      - DB_PASSWORD=ServerAdmin2026
+      - DB_NAME=reservas
+=======
       - DB_PORT=1433
       - DB_NAME=${DB_NAME:-reservas}
       - DB_USER=${DB_USER:-sa}
@@ -16,14 +26,20 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - APP_ENV=${APP_ENV:-development}
     restart: unless-stopped
+>>>>>>> origin/main
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: reservas_db
     environment:
+<<<<<<< HEAD
+      - MSSQL_SA_PASSWORD=ServerAdmin2026
+      - ACCEPT_EULA=Y
+=======
       - MSSQL_SA_PASSWORD=${DB_PASSWORD}
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
+>>>>>>> origin/main
     ports:
       - "1433:1433"
     volumes:
