@@ -1,5 +1,6 @@
 import os
 import datetime
+from typing import List
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from passlib.context import CryptContext
@@ -7,12 +8,8 @@ from jose import jwt
 
 from app.models.usuario import Usuario
 from app.schemas.usuario_schema import UsuarioCreate, TokenResponse
+from app.security.config import JWT_SECRET, ALGORITHM, ACCESS_TOKEN_EXPIRE_HOURS
 import app.repositories.usuario_repository as usuario_repo
-
-
-JWT_SECRET    = os.getenv("JWT_SECRET", "dev-secret")
-_ALGORITHM    = "HS256"
-_EXPIRA_HORAS = 8
 
 _pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__rounds=12)
 
@@ -27,8 +24,8 @@ def verify_password(plain: str, hashed: str) -> bool:
 
 def crear_access_token(data: dict) -> str:
     payload = data.copy()
-    payload["exp"] = datetime.datetime.utcnow() + datetime.timedelta(hours=_EXPIRA_HORAS)
-    return jwt.encode(payload, JWT_SECRET, algorithm=_ALGORITHM)
+    payload["exp"] = datetime.datetime.utcnow() + datetime.timedelta(hours=ACCESS_TOKEN_EXPIRE_HOURS)
+    return jwt.encode(payload, JWT_SECRET, algorithm=ALGORITHM)
 
 
 def login(db: Session, email: str, password: str) -> TokenResponse:
@@ -64,3 +61,7 @@ def registrar(db: Session, data: UsuarioCreate) -> Usuario:
         rol=data.rol,
     )
     return usuario_repo.crear(db, nuevo)
+
+
+def listar_usuarios(db: Session) -> List[Usuario]:
+    return usuario_repo.listar(db)

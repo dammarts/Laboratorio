@@ -38,7 +38,7 @@ def registrar(data: UsuarioCreate, db: Session = Depends(get_db)):
     dependencies=[Depends(require_roles("ADMIN"))],
 )
 def listar_usuarios(db: Session = Depends(get_db)):
-    return usuario_repo.listar(db)
+    return auth_service.listar_usuarios(db)
 
 
 @router_usuarios.get(

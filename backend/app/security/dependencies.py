@@ -1,4 +1,3 @@
-import os
 from dataclasses import dataclass
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
@@ -6,10 +5,8 @@ from sqlalchemy.orm import Session
 from jose import jwt, JWTError
 
 from app.config.db import get_db
+from app.security.config import JWT_SECRET, ALGORITHM
 import app.repositories.usuario_repository as usuario_repo
-
-JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret")
-_ALGORITHM  = "HS256"
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login", auto_error=False)
 
@@ -34,7 +31,7 @@ def get_current_user(
     if not token:
         raise error_401
     try:
-        payload    = jwt.decode(token, JWT_SECRET, algorithms=[_ALGORITHM])
+        payload    = jwt.decode(token, JWT_SECRET, algorithms=[ALGORITHM])
         usuario_id = payload.get("sub")
         if usuario_id is None:
             raise error_401
