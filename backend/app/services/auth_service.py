@@ -42,7 +42,7 @@ def login(db: Session, email: str, password: str) -> TokenResponse:
             detail="Usuario inactivo",
         )
     token = crear_access_token({
-        "sub":   usuario.usuario_id,
+        "sub":   str(usuario.usuario_id),
         "email": usuario.email,
         "rol":   usuario.rol,
     })
