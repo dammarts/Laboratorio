@@ -11,14 +11,13 @@ DB_NAME     = os.getenv("DB_NAME", "reservas")
 DB_USER     = os.getenv("DB_USER", "sa")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 
-DATABASE_URL = (
-    f"mssql+pymssql://{DB_USER}:{DB_PASSWORD}"
-    f"@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    f"mssql+pymssql://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}",
 )
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
 
 def get_db() -> Session:
     db = SessionLocal()
@@ -26,7 +25,6 @@ def get_db() -> Session:
         yield db
     finally:
         db.close()
-
 
 def get_connection():
     import pymssql
