@@ -1,6 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
+<<<<<<< HEAD
 from app.config.db import get_db
+=======
+>>>>>>> origin/main
 from typing import List
 
 from app.schemas.laboratorio_schema import LaboratorioCreate, LaboratorioUpdate, LaboratorioResponse
@@ -10,6 +13,15 @@ from app.config.db import SessionLocal
 router = APIRouter(prefix="/laboratorios", tags=["Gestión de Laboratorios"])
 service = LaboratorioService()
 
+<<<<<<< HEAD
+=======
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+>>>>>>> origin/main
 
 @router.get("/", response_model=List[LaboratorioResponse])
 def obtener_laboratorios(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):

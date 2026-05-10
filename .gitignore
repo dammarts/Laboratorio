@@ -10,3 +10,12 @@ __pycache__/
 
 # VS Code
 .vscode/
+
+# Configuraciones locales y agentes de IA
+.claude/
+.claude.json
+.code/
+
+.coverage
+htmlcov/
+backend/backend/
