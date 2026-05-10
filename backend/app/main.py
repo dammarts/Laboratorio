@@ -1,11 +1,12 @@
+import os
+import time
 from fastapi import FastAPI
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
 from app.controller import horario_controller
-from app.config.db import engine, Base
+from app.config.db import engine
+from app.models.base import Base
 import sqlalchemy
-import time
-import os
 
 app = FastAPI(
     title="Sistema de Reservas de Laboratorios",
@@ -34,7 +35,8 @@ def init_db():
             retries -= 1
 
 
-init_db()
+if os.getenv("APP_ENV") != "testing":
+    init_db()
 
 
 @app.get("/")
