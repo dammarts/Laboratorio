@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
 from app.controller import horario_controller
+from app.controller import auth_controller
 from app.config.db import engine
 from app.models.base import Base
 import sqlalchemy
@@ -47,3 +48,5 @@ def root():
 app.include_router(reserva_controller.router)
 app.include_router(laboratorio_controller.router)
 app.include_router(horario_controller.router)
+app.include_router(auth_controller.router_auth)
+app.include_router(auth_controller.router_usuarios)
