@@ -1,6 +1,7 @@
 import os
 import time
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
 from app.controller import horario_controller
@@ -11,6 +12,14 @@ import sqlalchemy
 app = FastAPI(
     title="Sistema de Reservas de Laboratorios",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
