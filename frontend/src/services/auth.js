@@ -1,17 +1,7 @@
 import api from './api'
 
-// NOTA: /auth/login usa OAuth2 Password Bearer (form-urlencoded, no JSON)
-// Este endpoint lo implementa Daniel en feature/auth
-
-export const login = async (username, password) => {
-  const formData = new URLSearchParams()
-  formData.append('username', username)
-  formData.append('password', password)
-
-  const { data } = await api.post('/auth/login', formData, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  })
-
+export const login = async (email, password) => {
+  const { data } = await api.post('/auth/login', { email, password })
   localStorage.setItem('token', data.access_token)
   return data
 }

@@ -8,11 +8,11 @@ export const AuthProvider = ({ children }) => {
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState(null)
 
-  const login = async (username, password) => {
+  const login = async (email, password) => {
     setCargando(true)
     setError(null)
     try {
-      await loginService(username, password)
+      await loginService(email, password)
       setAutenticado(true)
     } catch (err) {
       const msg = err.response?.data?.detail || 'Error al iniciar sesión'

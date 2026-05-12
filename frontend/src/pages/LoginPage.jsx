@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
  
 const LoginPage = () => {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { login, cargando, error } = useAuth()
   const navigate = useNavigate()
@@ -11,7 +11,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await login(username, password)
+      await login(email, password)
       navigate('/laboratorios')
     } catch {}
   }
@@ -29,10 +29,10 @@ const LoginPage = () => {
           <label style={s.label}>Correo institucional</label>
           <input
             style={s.input}
-            type="text"
+            type="email"
             placeholder="usuario@universidad.edu"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <label style={s.label}>Contraseña</label>
