@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
+from fastapi import Request
+from fastapi.responses import JSONResponse
 from app.controller import horario_controller
 from app.config.db import engine
 from app.models.base import Base
@@ -21,6 +23,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.exception_handler(Exception)
+async def exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)},
+        headers={"Access-Control-Allow-Origin": "http://localhost:5173"},
+    )
 
 
 def init_db():
