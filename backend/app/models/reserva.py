@@ -16,7 +16,7 @@ class Reserva(Base):
 
     reserva_id          = Column(Integer, primary_key=True, index=True)
     laboratorio_id      = Column(Integer, ForeignKey("LABORATORIO.laboratorio_id"), nullable=False)
-    usuario_creador_id  = Column(Integer, nullable=False)
+    usuario_creador_id  = Column(Integer, ForeignKey("USUARIO.usuario_id"), nullable=False)
     curso               = Column(String(150), nullable=False)
     fecha               = Column(Date, nullable=False)
     hora_inicio         = Column(Time, nullable=False)
@@ -28,3 +28,4 @@ class Reserva(Base):
 
     laboratorio = relationship("Laboratorio", back_populates="reservas")
     historial   = relationship("HistorialReserva", back_populates="reserva")
+    usuario     = relationship("Usuario", back_populates="reservas")
