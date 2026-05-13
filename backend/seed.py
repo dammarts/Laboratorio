@@ -38,6 +38,20 @@ def main() -> None:
         db.refresh(admin)
         print(f"OK: Usuario ADMIN '{email}' creado con id={admin.usuario_id}.")
 
+        # Crear docente para pruebas de carga
+        email_docente = "docente@universidad.edu"
+        existente_doc = db.query(Usuario).filter(Usuario.email == email_docente).first()
+        if not existente_doc:
+            docente = Usuario(
+                email=email_docente,
+                password_hash=hash_password("Docente123!"),
+                rol="DOCENTE",
+                activo=True,
+            )
+            db.add(docente)
+            db.commit()
+            print(f"OK: Usuario DOCENTE '{email_docente}' creado.")
+
     except Exception as exc:
         db.rollback()
         print(f"ERROR: {exc}")

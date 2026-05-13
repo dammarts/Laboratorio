@@ -3,9 +3,9 @@ import random
 import datetime
 from locust import HttpUser, task, between
 
-ADMIN_EMAIL      = os.getenv("LOAD_ADMIN_EMAIL",      "admin@uni.edu")
-ADMIN_PASSWORD   = os.getenv("LOAD_ADMIN_PASSWORD",   "Admin123!")
-DOCENTE_EMAIL    = os.getenv("LOAD_DOCENTE_EMAIL",     "docente@uni.edu")
+ADMIN_EMAIL      = os.getenv("LOAD_ADMIN_EMAIL",      "admin@universidad.edu")
+ADMIN_PASSWORD   = os.getenv("LOAD_ADMIN_PASSWORD",   "CambiarEsto!Admin123")
+DOCENTE_EMAIL    = os.getenv("LOAD_DOCENTE_EMAIL",     "docente@universidad.edu")
 DOCENTE_PASSWORD = os.getenv("LOAD_DOCENTE_PASSWORD",  "Docente123!")
 
 _HORAS = [
