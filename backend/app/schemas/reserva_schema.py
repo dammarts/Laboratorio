@@ -1,6 +1,6 @@
 import datetime
 from typing import Optional
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from app.models.reserva import EstadoReserva
 
 
@@ -11,9 +11,10 @@ class ReservaCreate(BaseModel):
     hora_inicio    : datetime.time
     hora_fin       : datetime.time
 
-    @validator("hora_fin")
-    def hora_fin_posterior(cls, hora_fin: datetime.time, values: dict) -> datetime.time:
-        hora_inicio = values.get("hora_inicio")
+    @field_validator("hora_fin")
+    @classmethod
+    def hora_fin_posterior(cls, hora_fin: datetime.time, info) -> datetime.time:
+        hora_inicio = info.data.get("hora_inicio")
         if hora_inicio and hora_fin <= hora_inicio:
             raise ValueError("hora_fin debe ser posterior a hora_inicio")
         return hora_fin
@@ -24,9 +25,10 @@ class ReservaReprogramar(BaseModel):
     hora_inicio : datetime.time
     hora_fin    : datetime.time
 
-    @validator("hora_fin")
-    def hora_fin_posterior(cls, hora_fin: datetime.time, values: dict) -> datetime.time:
-        hora_inicio = values.get("hora_inicio")
+    @field_validator("hora_fin")
+    @classmethod
+    def hora_fin_posterior(cls, hora_fin: datetime.time, info) -> datetime.time:
+        hora_inicio = info.data.get("hora_inicio")
         if hora_inicio and hora_fin <= hora_inicio:
             raise ValueError("hora_fin debe ser posterior a hora_inicio")
         return hora_fin
@@ -37,6 +39,8 @@ class ReservaCancelar(BaseModel):
 
 
 class ReservaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     reserva_id          : int
     laboratorio_id      : int
     usuario_creador_id  : int
@@ -48,9 +52,6 @@ class ReservaResponse(BaseModel):
     motivo_cancelacion  : Optional[str]
     fecha_creacion      : datetime.datetime
     fecha_actualizacion : Optional[datetime.datetime]
-
-    class Config:
-        from_attributes = True
 
 
 class ReservaFiltros(BaseModel):
