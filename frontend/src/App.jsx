@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import LaboratoriosPage from './pages/LaboratoriosPage'
 import NuevaReservaPage from './pages/NuevaReservaPage'
 import HistorialPage from './pages/HistorialPage'
+import ReportesPage from './pages/ReportesPage'
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
             path="/historial"
             element={<PrivateRoute><HistorialPage /></PrivateRoute>}
           />
+          <Route
+            path="/reportes"
+            element={<PrivateRoute><ReportesPage /></PrivateRoute>}
+          />
+
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </AuthProvider>

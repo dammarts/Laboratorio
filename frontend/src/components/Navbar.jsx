@@ -5,6 +5,7 @@ const links = [
   { path: '/laboratorios', label: 'Laboratorios' },
   { path: '/reservas/nueva', label: 'Nueva reserva' },
   { path: '/historial', label: 'Historial' },
+  { path: '/reportes', label: 'Reportes' },
 ]
  
 const Navbar = () => {

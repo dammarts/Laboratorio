@@ -7,8 +7,8 @@ import { crearReserva } from '../services/reservas'
  
 // JS getDay(): 0=dom,1=lun,...,6=sáb
 // API dia_semana: asumimos 0=lun,...,6=dom (convención ISO)
-const JS_A_API = [6, 0, 1, 2, 3, 4, 5]
- 
+const JS_A_API = [7, 1, 2, 3, 4, 5, 6]
+
 const NuevaReservaPage = () => {
   const navigate = useNavigate()
   const location = useLocation()

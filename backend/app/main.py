@@ -18,9 +18,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
+CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[CORS_ORIGIN],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,7 +33,7 @@ async def exception_handler(request: Request, exc: Exception):
     return JSONResponse(
         status_code=500,
         content={"detail": str(exc)},
-        headers={"Access-Control-Allow-Origin": "http://localhost:5173"},
+        headers={"Access-Control-Allow-Origin": CORS_ORIGIN},
     )
 
 
