@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 COPY requirements.txt .
+RUN grep -v "locust" requirements.txt > requirements-prod.txt && \
+    pip install --no-cache-dir -r requirements-prod.txt && \
+    rm requirements-prod.txt
 
 RUN grep -v "locust" requirements.txt > requirements-prod.txt && \
     pip install --no-cache-dir -r requirements-prod.txt && \
