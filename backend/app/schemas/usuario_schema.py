@@ -1,5 +1,5 @@
 import datetime
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 _ROLES_VALIDOS = {"ADMIN", "COORDINADOR", "DOCENTE", "CONSULTA"}
@@ -10,7 +10,8 @@ class UsuarioCreate(BaseModel):
     password: str = Field(..., min_length=8,  max_length=100)
     rol:      str = Field(..., max_length=20)
 
-    @validator("rol")
+    @field_validator("rol")
+    @classmethod
     def rol_valido(cls, v: str) -> str:
         if v not in _ROLES_VALIDOS:
             raise ValueError(f"Rol inválido. Opciones: {sorted(_ROLES_VALIDOS)}")
@@ -18,14 +19,13 @@ class UsuarioCreate(BaseModel):
 
 
 class UsuarioResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     usuario_id: int
     email:      str
     rol:        str
     activo:     bool
     created_at: datetime.datetime
-
-    class Config:
-        from_attributes = True
 
 
 class LoginRequest(BaseModel):
