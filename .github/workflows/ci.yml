@@ -21,7 +21,7 @@ jobs:
 
     env:
       APP_ENV: testing
-      DATABASE_URL: sqlite:///:memory:
+      DATABASE_URL: "sqlite:///:memory:"
       JWT_SECRET: test-secret-key-for-ci
 
     steps:
