@@ -1,9 +1,11 @@
 FROM python:3.11-slim
 
-# Instalar dependencias del sistema para pyodbc + SQL Server
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     gnupg \
+    freetds-dev \
+    gcc \
+    g++ \
     unixodbc-dev \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list \
@@ -12,18 +14,18 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Carpeta de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar e instalar dependencias Python
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar todo el proyecto
+RUN grep -v "locust" requirements.txt > requirements-prod.txt && \
+    pip install --no-cache-dir -r requirements-prod.txt && \
+    rm requirements-prod.txt
+
 COPY . .
 
-# Exponer puerto de FastAPI
+ENV APP_ENV=production
+
 EXPOSE 8000
 
-# Comando para ejecutar la app
-CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

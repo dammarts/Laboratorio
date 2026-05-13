@@ -21,4 +21,5 @@ docs/docs_reservas.md
 
 .coverage
 htmlcov/
+coverage.xml
 backend/backend/
