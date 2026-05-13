@@ -23,3 +23,5 @@ docs/docs_reservas.md
 htmlcov/
 coverage.xml
 backend/backend/
+
+s -ExecutionPolicy RemoteSigned) ; (& cUsers57301OneDriveDocumentosLaboratoriovenvScriptsActivate.ps1)

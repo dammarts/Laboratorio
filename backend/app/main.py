@@ -1,8 +1,11 @@
 import os
 import time
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.controller import reserva_controller
 from app.controller import laboratorio_controller
+from fastapi import Request
+from fastapi.responses import JSONResponse
 from app.controller import horario_controller
 from app.controller import auth_controller
 from app.controller import reporte_controller
@@ -14,6 +17,24 @@ app = FastAPI(
     title="Sistema de Reservas de Laboratorios",
     version="1.0.0"
 )
+
+CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:5173")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[CORS_ORIGIN],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.exception_handler(Exception)
+async def exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)},
+        headers={"Access-Control-Allow-Origin": CORS_ORIGIN},
+    )
 
 
 def init_db():
