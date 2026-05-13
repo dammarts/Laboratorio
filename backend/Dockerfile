@@ -1,19 +1,23 @@
-FROM python:3.11
+FROM python:3.11-slim
 
-# Carpeta de trabajo dentro del contenedor
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        freetds-dev \
+        gcc \
+        g++ \
+        unixodbc-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Copiar dependencias
 COPY requirements.txt .
+RUN grep -v "locust" requirements.txt > requirements-prod.txt && \
+    pip install --no-cache-dir -r requirements-prod.txt && \
+    rm requirements-prod.txt
 
-# Instalar dependencias
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar todo el proyecto
 COPY . .
 
-# Exponer puerto de FastAPI
+ENV APP_ENV=production
+
 EXPOSE 8000
 
-# Comando para ejecutar la app
-CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

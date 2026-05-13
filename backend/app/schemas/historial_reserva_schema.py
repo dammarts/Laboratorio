@@ -1,18 +1,17 @@
 import datetime
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class HistorialReservaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     historial_id : int
     reserva_id   : int
     usuario_id   : int
     accion       : str
     detalle      : Optional[str]
     fecha        : datetime.datetime
-
-    class Config:
-        from_attributes = True
 
 
 class HistorialFiltros(BaseModel):
