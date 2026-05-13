@@ -23,3 +23,8 @@ docs/docs_reservas.md
 htmlcov/
 coverage.xml
 backend/backend/
+
+# Playwright / Node
+node_modules/
+test-results/
+playwright-report/
