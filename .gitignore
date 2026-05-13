@@ -24,4 +24,7 @@ htmlcov/
 coverage.xml
 backend/backend/
 
-s -ExecutionPolicy RemoteSigned) ; (& cUsers57301OneDriveDocumentosLaboratoriovenvScriptsActivate.ps1)
+# Playwright / Node
+node_modules/
+test-results/
+playwright-report/
