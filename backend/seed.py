@@ -25,18 +25,18 @@ def main() -> None:
         existente = db.query(Usuario).filter(Usuario.email == email).first()
         if existente:
             print(f"INFO: El usuario '{email}' ya existe (id={existente.usuario_id}). Sin cambios.")
-            return
+        else:
 
-        admin = Usuario(
-            email=email,
-            password_hash=hash_password(password),
-            rol="ADMIN",
-            activo=True,
-        )
-        db.add(admin)
-        db.commit()
-        db.refresh(admin)
-        print(f"OK: Usuario ADMIN '{email}' creado con id={admin.usuario_id}.")
+            admin = Usuario(
+                email=email,
+                password_hash=hash_password(password),
+                rol="ADMIN",
+                activo=True,
+            )
+            db.add(admin)
+            db.commit()
+            db.refresh(admin)
+            print(f"OK: Usuario ADMIN '{email}' creado con id={admin.usuario_id}.")
 
         # Crear docente para pruebas de carga
         email_docente = "jp@universidad.edu"
