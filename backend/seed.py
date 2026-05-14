@@ -15,7 +15,7 @@ def main() -> None:
         sys.exit(1)
 
     from app.config.db import SessionLocal, engine
-    from app.models import Base, Usuario  # noqa: F401 — registra todos los modelos
+    from app.models import Base, Usuario, Laboratorio  # noqa: F401 — registra todos los modelos
     from app.services.auth_service import hash_password
 
     Base.metadata.create_all(bind=engine)
@@ -39,18 +39,33 @@ def main() -> None:
         print(f"OK: Usuario ADMIN '{email}' creado con id={admin.usuario_id}.")
 
         # Crear docente para pruebas de carga
-        email_docente = "docente@universidad.edu"
+        email_docente = "jp@universidad.edu"
         existente_doc = db.query(Usuario).filter(Usuario.email == email_docente).first()
         if not existente_doc:
             docente = Usuario(
                 email=email_docente,
-                password_hash=hash_password("Docente123!"),
+                password_hash=hash_password("test1234"),
                 rol="DOCENTE",
                 activo=True,
             )
             db.add(docente)
             db.commit()
             print(f"OK: Usuario DOCENTE '{email_docente}' creado.")
+
+        # Crear laboratorio de prueba (ID=1) para que Locust no dé 404 Not Found
+        existente_lab = db.query(Laboratorio).filter(Laboratorio.laboratorio_id == 1).first()
+        if not existente_lab:
+            lab = Laboratorio(
+                laboratorio_id=1,
+                nombre="Laboratorio de Sistemas (Prueba Locust)",
+                ubicacion="Bloque C - Piso 1",
+                capacidad_maxima=40,
+                tipo_laboratorio="COMPUTO",
+                estado=True
+            )
+            db.add(lab)
+            db.commit()
+            print("OK: Laboratorio de prueba (ID=1) creado exitosamente.")
 
     except Exception as exc:
         db.rollback()
