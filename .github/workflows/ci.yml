@@ -34,12 +34,6 @@ jobs:
           cache: pip
           cache-dependency-path: backend/requirements.txt
 
-      - name: Instalar dependencias del sistema (pymssql)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            freetds-dev gcc g++ unixodbc-dev
-
       - name: Instalar dependencias Python
         run: pip install -r requirements.txt
 
