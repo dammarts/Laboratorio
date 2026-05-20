@@ -6,14 +6,14 @@ from sqlalchemy.orm import sessionmaker, Session
 load_dotenv()
 
 DB_SERVER   = os.getenv("DB_SERVER", "db")
-DB_PORT     = os.getenv("DB_PORT", "1433")
+DB_PORT     = os.getenv("DB_PORT", "5432")
 DB_NAME     = os.getenv("DB_NAME", "reservas")
-DB_USER     = os.getenv("DB_USER", "sa")
+DB_USER     = os.getenv("DB_USER", "postgres")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    f"mssql+pymssql://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}",
+    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}",
 )
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
@@ -25,12 +25,3 @@ def get_db() -> Session:
         yield db
     finally:
         db.close()
-
-def get_connection():
-    import pymssql
-    return pymssql.connect(
-        server=DB_SERVER,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        database=DB_NAME
-    )

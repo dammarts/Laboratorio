@@ -11,7 +11,6 @@ from app.controller import auth_controller
 from app.controller import reporte_controller
 from app.config.db import engine
 from app.models.base import Base
-import sqlalchemy
 
 app = FastAPI(
     title="Sistema de Reservas de Laboratorios",
@@ -38,17 +37,9 @@ async def exception_handler(request: Request, exc: Exception):
 
 
 def init_db():
-    root_url = f"mssql+pymssql://sa:{os.getenv('DB_PASSWORD')}@db:1433/master"
     retries = 5
     while retries > 0:
         try:
-            root_engine = sqlalchemy.create_engine(root_url)
-            with root_engine.connect() as conn:
-                conn.execution_options(isolation_level="AUTOCOMMIT")
-                conn.execute(sqlalchemy.text(
-                    "IF NOT EXISTS (SELECT name FROM sys.databases "
-                    "WHERE name = 'reservas') CREATE DATABASE reservas"
-                ))
             Base.metadata.create_all(bind=engine)
             print("Base de datos y tablas creadas exitosamente.")
             break
