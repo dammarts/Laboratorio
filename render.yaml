@@ -1,9 +1,3 @@
-databases:
-  - name: reservas-db
-    databaseName: reservas
-    user: reservas_user
-    plan: free
-
 services:
   - type: web
     name: reservas-backend
@@ -13,9 +7,7 @@ services:
     plan: free
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: reservas-db
-          property: connectionString
+        sync: false
       - key: JWT_SECRET_KEY
         sync: false
       - key: APP_ENV
