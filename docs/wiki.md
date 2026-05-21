@@ -5,14 +5,16 @@
 2. [Usuario final](#usuario-final)
 3. [Caso de uso principal](#caso-de-uso-principal)
 4. [Alcance del proyecto](#alcance-del-proyecto)
-5. [Casos de prueba y evidencias](#casos-de-prueba-y-evidencias)
-6. [API REST documentada](#api-rest-documentada)
-7. [Diseño de pantallas](#diseño-de-pantallas)
-8. [Monetización](#monetización)
-9. [Estrategia de visibilidad](#estrategia-de-visibilidad)
-10. [Riesgos y mitigaciones](#riesgos-y-mitigaciones)
-11. [Estudio de mercado](#estudio-de-mercado)
-12. [Roadmap y mejoras futuras](#roadmap-y-mejoras-futuras)
+5. [Guía de ejecución](#guía-de-ejecución)
+6. [Casos de prueba y evidencias](#casos-de-prueba-y-evidencias)
+7. [API REST documentada](#api-rest-documentada)
+8. [Diagramas](#diagramas)
+9. [Diseño de pantallas](#diseño-de-pantallas)
+10. [Monetización](#monetización)
+11. [Estrategia de visibilidad](#estrategia-de-visibilidad)
+12. [Riesgos y mitigaciones](#riesgos-y-mitigaciones)
+13. [Estudio de mercado](#estudio-de-mercado)
+14. [Roadmap y mejoras futuras](#roadmap-y-mejoras-futuras)
 
 ---
 
@@ -84,6 +86,68 @@ El sistema centraliza la gestión de disponibilidad, reservas, control de horari
 
 ---
 
+## Guía de ejecución
+
+### Prerrequisitos
+
+- Docker Desktop
+- Python 3.11
+- Node.js 18+
+- Git
+
+### Variables de entorno
+
+Copiar `.env.example` a `.env` y completar:
+
+| Variable | Descripción |
+|---|---|
+| `DB_SERVER` | `db` (Docker) o `localhost` (local) |
+| `DB_PORT` | `5432` |
+| `DB_USER` | `postgres` |
+| `DB_PASSWORD` | Contraseña de la BD |
+| `DB_NAME` | `reservas` |
+| `JWT_SECRET_KEY` | Clave secreta mínimo 32 caracteres |
+| `APP_ENV` | `development` o `production` |
+| `CORS_ORIGIN` | URL del frontend (`http://localhost:5173`) |
+| `SEED_EMAIL` | Email del primer admin |
+| `SEED_PASSWORD` | Contraseña del primer admin |
+
+### Levantar con Docker (recomendado)
+
+```bash
+# 1. Levantar BD + backend
+docker-compose up --build
+
+# 2. En otra terminal — crear usuario admin (solo primera vez)
+docker exec -e SEED_EMAIL="admin@uni.edu" -e SEED_PASSWORD="Admin123!" reservas_backend python seed.py
+
+# 3. Frontend (desarrollo)
+cd frontend && npm install && npm run dev
+```
+
+### Ejecutar pruebas
+
+```bash
+cd backend
+
+# Pruebas unitarias e integración
+pytest tests/ --ignore=tests/load --ignore=tests/stress -v
+
+# Con cobertura
+pytest tests/ --ignore=tests/load --ignore=tests/stress --cov=app --cov-report=term-missing
+
+# Solo smoke
+pytest tests/smoke/ -m smoke -v
+
+# E2E con Playwright (desde raíz, backend debe estar corriendo)
+npx playwright test
+
+# Carga con Locust
+locust -f tests/load/locustfile.py --host=http://localhost:8000
+```
+
+---
+
 ## Casos de prueba y evidencias
 
 ### Módulo Gestión de Horarios
@@ -114,15 +178,56 @@ El sistema centraliza la gestión de disponibilidad, reservas, control de horari
 | TC-L07 | Actualizar laboratorio inexistente | Negativo |  Pasa |
 | TC-L08 | Desactivar laboratorio existente | Positivo |  Pasa |
 
+### Módulo Autenticación y Usuarios
+
+| ID | Descripción | Tipo | Resultado |
+|---|---|---|---|
+| TC-A01 | Login con credenciales válidas retorna JWT | Positivo | Pasa |
+| TC-A02 | Login con email inexistente retorna 401 | Negativo | Pasa |
+| TC-A03 | Login con contraseña incorrecta retorna 401 | Negativo | Pasa |
+| TC-A04 | Registrar usuario como ADMIN exitosamente | Positivo | Pasa |
+| TC-A05 | Registrar usuario con email duplicado retorna 400 | Negativo | Pasa |
+| TC-A06 | Registrar usuario sin rol ADMIN retorna 403 | Negativo | Pasa |
+| TC-A07 | Obtener perfil propio con token válido | Positivo | Pasa |
+| TC-A08 | Acceder a endpoint protegido sin token retorna 401 | Negativo | Pasa |
+
+### Módulo Gestión de Reservas
+
+| ID | Descripción | Tipo | Resultado |
+|---|---|---|---|
+| TC-R01 | Crear reserva con datos válidos | Positivo | Pasa |
+| TC-R02 | Crear reserva con solapamiento retorna 409 | Negativo | Pasa |
+| TC-R03 | Crear reserva en laboratorio inactivo retorna 422 | Negativo | Pasa |
+| TC-R04 | Crear reserva en fecha bloqueada retorna 422 | Negativo | Pasa |
+| TC-R05 | Cancelar reserva activa con motivo | Positivo | Pasa |
+| TC-R06 | Cancelar reserva sin motivo retorna 422 | Negativo | Pasa |
+| TC-R07 | Listar reservas propias del docente | Positivo | Pasa |
+| TC-R08 | Obtener reserva por ID existente | Positivo | Pasa |
+| TC-R09 | Obtener reserva por ID inexistente retorna 404 | Negativo | Pasa |
+
+### Módulo Reportes
+
+| ID | Descripción | Tipo | Resultado |
+|---|---|---|---|
+| TC-RE01 | Generar reporte de uso por laboratorio | Positivo | Pasa |
+| TC-RE02 | Generar reporte de uso con filtro de fechas | Positivo | Pasa |
+| TC-RE03 | Generar reporte de ocupación mensual | Positivo | Pasa |
+| TC-RE04 | Generar reporte por docente | Positivo | Pasa |
+| TC-RE05 | Exportar reporte de uso en CSV | Positivo | Pasa |
+| TC-RE06 | Acceder a reportes como DOCENTE retorna 403 | Negativo | Pasa |
+
 ### Resumen de cobertura
 
 | Módulo | Pruebas | Cobertura |
 |---|---|---|
+| auth_service | 15 | 92% |
+| reserva_service | 18 | 88% |
+| reporte_service | 12 | 85% |
 | horario_service | 20 | 79% |
 | laboratorio_service | 17 | 100% |
 | horario_repository | 10 | 100% |
 | laboratorio_repository | 6 | 100% |
-| **Total** | **83** | **90%** |
+| **Total** | **135** | **87%** |
 
 ---
 
@@ -156,24 +261,166 @@ La documentación completa está disponible en Swagger UI al levantar el proyect
 #### Reservas
 | Método | Endpoint | Descripción | Auth |
 |---|---|---|---|
-| POST | /reservas/ | Crear reserva | Docente |
-| GET | /reservas/ | Listar reservas | Todos |
-| GET | /reservas/{id} | Obtener reserva | Todos |
-| PATCH | /reservas/{id}/cancelar | Cancelar reserva | Docente |
+| POST | /reservas/ | Crear reserva | Docente, Admin, Coordinador |
+| GET | /reservas/ | Listar reservas propias | Autenticado |
+| GET | /reservas/{id} | Obtener reserva por ID | Autenticado |
+| PATCH | /reservas/{id}/cancelar | Cancelar reserva con motivo | Autenticado |
+
+#### Autenticación y Usuarios
+| Método | Endpoint | Descripción | Auth |
+|---|---|---|---|
+| POST | /auth/login | Iniciar sesión — retorna JWT | Público |
+| POST | /auth/register | Registrar nuevo usuario | Solo Admin |
+| GET | /usuarios/ | Listar todos los usuarios | Solo Admin |
+| GET | /usuarios/me | Perfil del usuario autenticado | Autenticado |
+
+#### Reportes
+| Método | Endpoint | Descripción | Auth |
+|---|---|---|---|
+| GET | /reportes/uso-laboratorio | Uso por laboratorio (con filtros de fecha) | Admin, Coordinador |
+| GET | /reportes/ocupacion-mensual | Ocupación por mes y año | Admin, Coordinador |
+| GET | /reportes/por-docente | Reservas agrupadas por docente | Admin, Coordinador |
+| GET | /reportes/uso-laboratorio/csv | Exportar uso en CSV | Admin, Coordinador |
+| GET | /reportes/por-docente/csv | Exportar reporte docente en CSV | Admin, Coordinador |
+
+---
+
+## Diagramas
+
+### Diagrama Entidad-Relación
+
+```mermaid
+erDiagram
+  USUARIO {
+    int usuario_id PK
+    string email
+    string password_hash
+    string rol
+    bit activo
+    datetime created_at
+  }
+  LABORATORIO {
+    int laboratorio_id PK
+    string nombre
+    string ubicacion
+    int capacidad_maxima
+    string tipo_laboratorio
+    bit estado
+  }
+  HORARIO_LABORATORIO {
+    int horario_id PK
+    int laboratorio_id FK
+    int dia_semana
+    time hora_inicio
+    time hora_fin
+    bit disponible
+    date fecha_bloqueo
+    string motivo_bloqueo
+  }
+  RESERVA {
+    int reserva_id PK
+    int usuario_creador_id FK
+    int laboratorio_id FK
+    string curso
+    date fecha
+    time hora_inicio
+    time hora_fin
+    string estado
+    string motivo_cancelacion
+    datetime created_at
+  }
+  USUARIO ||--o{ RESERVA : "crea"
+  LABORATORIO ||--o{ HORARIO_LABORATORIO : "tiene"
+  LABORATORIO ||--o{ RESERVA : "tiene"
+```
+
+### Diagrama de Secuencia — Flujo principal (crear reserva)
+
+```mermaid
+sequenceDiagram
+  actor Docente
+  participant Frontend
+  participant AuthController
+  participant ReservaController
+  participant ReservaService
+  participant HorarioService
+  participant ReservaRepository
+  participant DB
+
+  Docente->>Frontend: Ingresa credenciales
+  Frontend->>AuthController: POST /auth/login
+  AuthController-->>Frontend: JWT token
+
+  Docente->>Frontend: Selecciona lab, fecha, horario y curso
+  Frontend->>ReservaController: POST /reservas/ (Bearer JWT)
+  ReservaController->>ReservaService: crear(db, datos, usuario)
+
+  ReservaService->>ReservaService: Validar lab activo
+  ReservaService->>HorarioService: Validar fecha no bloqueada
+  ReservaService->>ReservaRepository: existe_solapamiento()
+  ReservaRepository->>DB: SELECT solapamientos
+  DB-->>ReservaRepository: []
+
+  ReservaRepository->>DB: INSERT reserva
+  DB-->>ReservaRepository: reserva creada
+  ReservaRepository-->>ReservaService: reserva
+  ReservaService-->>ReservaController: reserva
+  ReservaController-->>Frontend: 201 Created
+  Frontend-->>Docente: Reserva confirmada
+```
+
+### Diagrama de Componentes
+
+```mermaid
+graph TD
+  subgraph Frontend["Frontend — React + Vite (Vercel)"]
+    UI[Páginas y Componentes]
+    AuthCtx[AuthContext — JWT + Rol]
+    Services[Services — axios]
+  end
+
+  subgraph Backend["Backend — FastAPI (Railway)"]
+    Controllers[Controllers — Routers]
+    ServicesB[Services — Lógica de negocio]
+    Repos[Repositories — SQLAlchemy]
+    Security[Security — JWT + bcrypt]
+  end
+
+  subgraph BD["Base de Datos — PostgreSQL (Neon)"]
+    DB[(PostgreSQL 16)]
+  end
+
+  subgraph DevOps["CI/CD"]
+    GHA[GitHub Actions]
+    Sonar[SonarCloud]
+  end
+
+  UI --> AuthCtx
+  UI --> Services
+  Services -->|HTTP REST + Bearer Token| Controllers
+  Controllers --> Security
+  Controllers --> ServicesB
+  ServicesB --> Repos
+  Repos --> DB
+  GHA --> Sonar
+```
 
 ---
 
 ## Diseño de pantallas
 
-Los mockups del sistema están diseñados en Figma/Miro cubriendo:
+Los mockups del sistema están disponibles en Figma. Las pantallas diseñadas cubren el flujo principal:
 
-- Pantalla de login
-- Dashboard principal por rol
-- Listado y filtro de laboratorios
-- Calendario de disponibilidad
-- Formulario de reserva
-- Gestión de horarios
-- Reportes y estadísticas
+| Pantalla | Descripción |
+|---|---|
+| Login | Formulario de acceso con email y contraseña |
+| Laboratorios | Listado de laboratorios disponibles con estado y capacidad |
+| Nueva reserva | Selección de lab, fecha, franja horaria y curso |
+| Historial | Tabla de reservas con filtro por estado y opción de cancelar |
+| Reportes | Tres pestañas: uso por lab, ocupación mensual, por docente — exportación CSV |
+| Gestión de usuarios | Panel exclusivo ADMIN: lista de usuarios y creación de nuevos |
+
+> El sistema implementa navegación condicional por rol: los usuarios DOCENTE no ven Reportes ni Usuarios; los ADMIN tienen acceso completo.
 
 ---
 
