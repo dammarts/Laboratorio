@@ -3,7 +3,7 @@ from app.models.laboratorio import Laboratorio
 from app.schemas.laboratorio_schema import LaboratorioCreate, LaboratorioUpdate
 
 class LaboratorioRepository:
-    
+
     def obtener_laboratorios(self, db: Session, skip: int = 0, limit: int = 100):
         return db.query(Laboratorio).order_by(Laboratorio.laboratorio_id).offset(skip).limit(limit).all()
 
@@ -15,8 +15,8 @@ class LaboratorioRepository:
         """Guarda un nuevo laboratorio en la base de datos"""
         db_laboratorio = Laboratorio(**laboratorio.model_dump())
         db.add(db_laboratorio)
-        db.commit()             
-        db.refresh(db_laboratorio) 
+        db.commit()
+        db.refresh(db_laboratorio)
         return db_laboratorio
 
     def actualizar_laboratorio(self, db: Session, laboratorio_id: int, laboratorio_data: LaboratorioUpdate):
@@ -33,10 +33,10 @@ class LaboratorioRepository:
     def desactivar_laboratorio(self, db: Session, laboratorio_id: int):
         """Desactiva un laboratorio en lugar de borrarlo físicamente (Soft Delete)"""
         db_laboratorio = self.obtener_laboratorio_por_id(db, laboratorio_id)
-        
+
         if db_laboratorio:
-            db_laboratorio.estado = False  
+            db_laboratorio.estado = False
             db.commit()
             db.refresh(db_laboratorio)
-        
+
         return db_laboratorio

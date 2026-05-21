@@ -5,12 +5,12 @@ from app.models.reserva import EstadoReserva
 
 
 class ReservaCreate(BaseModel):
-    laboratorio_id  : int            = Field(..., gt=0)
-    curso           : str            = Field(..., min_length=1, max_length=150)
-    fecha           : datetime.date
-    hora_inicio     : datetime.time
-    hora_fin        : datetime.time
-    num_estudiantes : Optional[int]  = Field(None, ge=1, description="Número de estudiantes — no puede superar la capacidad del laboratorio")
+    laboratorio_id: int = Field(..., gt=0)
+    curso: str = Field(..., min_length=1, max_length=150)
+    fecha: datetime.date
+    hora_inicio: datetime.time
+    hora_fin: datetime.time
+    num_estudiantes: Optional[int] = Field(None, ge=1, description="Número de estudiantes — no puede superar la capacidad del laboratorio")
 
     @field_validator("hora_fin")
     @classmethod
@@ -22,9 +22,9 @@ class ReservaCreate(BaseModel):
 
 
 class ReservaReprogramar(BaseModel):
-    fecha       : datetime.date
-    hora_inicio : datetime.time
-    hora_fin    : datetime.time
+    fecha: datetime.date
+    hora_inicio: datetime.time
+    hora_fin: datetime.time
 
     @field_validator("hora_fin")
     @classmethod
@@ -42,22 +42,22 @@ class ReservaCancelar(BaseModel):
 class ReservaResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    reserva_id          : int
-    laboratorio_id      : int
-    usuario_creador_id  : int
-    curso               : str
-    fecha               : datetime.date
-    hora_inicio         : datetime.time
-    hora_fin            : datetime.time
-    estado              : EstadoReserva
-    motivo_cancelacion  : Optional[str]
-    fecha_creacion      : datetime.datetime
-    fecha_actualizacion : Optional[datetime.datetime]
+    reserva_id: int
+    laboratorio_id: int
+    usuario_creador_id: int
+    curso: str
+    fecha: datetime.date
+    hora_inicio: datetime.time
+    hora_fin: datetime.time
+    estado: EstadoReserva
+    motivo_cancelacion: Optional[str]
+    fecha_creacion: datetime.datetime
+    fecha_actualizacion: Optional[datetime.datetime]
 
 
 class ReservaFiltros(BaseModel):
-    laboratorio_id     : Optional[int]           = None
-    usuario_creador_id : Optional[int]           = None
-    estado             : Optional[EstadoReserva] = None
-    fecha_desde        : Optional[datetime.date] = None
-    fecha_hasta        : Optional[datetime.date] = None
+    laboratorio_id: Optional[int] = None
+    usuario_creador_id: Optional[int] = None
+    estado: Optional[EstadoReserva] = None
+    fecha_desde: Optional[datetime.date] = None
+    fecha_hasta: Optional[datetime.date] = None
