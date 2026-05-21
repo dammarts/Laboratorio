@@ -18,6 +18,11 @@ def crear_reserva(db: Session, data: ReservaCreate, usuario: UsuarioActual) -> R
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Laboratorio no encontrado")
     if not laboratorio.estado:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Laboratorio inactivo")
+    if data.num_estudiantes and data.num_estudiantes > laboratorio.capacidad_maxima:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"El número de estudiantes ({data.num_estudiantes}) supera la capacidad del laboratorio ({laboratorio.capacidad_maxima})"
+        )
     if reserva_repo.existe_solapamiento(db, data.laboratorio_id, data.fecha, data.hora_inicio, data.hora_fin):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="El horario solapa con una reserva existente")
     _validar_fecha_no_bloqueada(db, data.laboratorio_id, data.fecha)
