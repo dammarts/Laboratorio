@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from 'react'
-import { login as loginService, logout as logoutService, isAuthenticated } from '../services/auth'
+import { login as loginService, logout as logoutService, getMe, getCachedUsuario, isAuthenticated } from '../services/auth'
 
 const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
   const [autenticado, setAutenticado] = useState(isAuthenticated())
+  const [usuario, setUsuario] = useState(getCachedUsuario)
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState(null)
 
@@ -13,6 +14,8 @@ export const AuthProvider = ({ children }) => {
     setError(null)
     try {
       await loginService(email, password)
+      const me = await getMe()
+      setUsuario(me)
       setAutenticado(true)
     } catch (err) {
       const msg = err.response?.data?.detail || 'Error al iniciar sesión'
@@ -26,10 +29,11 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     logoutService()
     setAutenticado(false)
+    setUsuario(null)
   }
 
   return (
-    <AuthContext.Provider value={{ autenticado, login, logout, cargando, error }}>
+    <AuthContext.Provider value={{ autenticado, usuario, rol: usuario?.rol || null, login, logout, cargando, error }}>
       {children}
     </AuthContext.Provider>
   )

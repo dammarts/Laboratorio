@@ -19,11 +19,8 @@ def uso_por_laboratorio(db: Session, filtros: FiltrosReporte) -> List[dict]:
                     case(
                         (
                             Reserva.estado != EstadoReserva.CANCELADA.value,
-                            func.datediff(
-                                text("minute"),
-                                Reserva.hora_inicio,
-                                Reserva.hora_fin
-                            )
+                            # PostgreSQL utiliza extract('epoch') para calcular diferencias de tiempo
+                            func.extract('epoch', Reserva.hora_fin - Reserva.hora_inicio) / 60.0
                         ),
                         else_=0
                     )
@@ -71,19 +68,15 @@ def ocupacion_mensual(db: Session, mes: int, anio: int) -> List[dict]:
             func.count(Reserva.reserva_id).label("total_reservas"),
             (func.coalesce(
                 func.sum(
-                    func.datediff(
-                        text("minute"),
-                        Reserva.hora_inicio,
-                        Reserva.hora_fin
-                    )
+                    func.extract('epoch', Reserva.hora_fin - Reserva.hora_inicio) / 60.0
                 ),
                 0
             ) / 60.0).label("horas_ocupadas"),
         )
         .join(Reserva, Reserva.laboratorio_id == Laboratorio.laboratorio_id)
         .filter(
-            func.month(Reserva.fecha) == mes,
-            func.year(Reserva.fecha) == anio,
+            func.extract('month', Reserva.fecha) == mes,
+            func.extract('year', Reserva.fecha) == anio,
             Reserva.estado != EstadoReserva.CANCELADA.value,
         )
         .group_by(
@@ -94,7 +87,6 @@ def ocupacion_mensual(db: Session, mes: int, anio: int) -> List[dict]:
     )
 
     resultado = []
-
     for row in rows:
         d = dict(row._mapping)
         d["mes"] = mes
