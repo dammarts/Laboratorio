@@ -90,3 +90,20 @@ jobs:
 
       - name: Verificar backend/app/ con ruff
         run: ruff check backend/app/ --select=E,F,W --ignore=E501
+
+  # ─────────────────────────────────────────
+  # JOB 3 — Deploy automático (solo push a main)
+  # ─────────────────────────────────────────
+  deploy-backend:
+    name: Deploy Backend (Render)
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Trigger deploy en Render
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" | grep -q "^2" \
+            && echo "Deploy iniciado correctamente" \
+            || (echo "Error al hacer deploy" && exit 1)
