@@ -56,9 +56,6 @@ jobs:
             --cov-report=xml \
             --cov-report=term-missing
 
-      - name: Ajustar rutas en coverage.xml para SonarCloud
-        run: sed -i 's|filename="|filename="backend/|g' coverage.xml
-
       - name: Subir reporte de cobertura
         uses: actions/upload-artifact@v4
         with:
