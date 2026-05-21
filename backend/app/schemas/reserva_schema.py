@@ -5,11 +5,12 @@ from app.models.reserva import EstadoReserva
 
 
 class ReservaCreate(BaseModel):
-    laboratorio_id : int            = Field(..., gt=0)
-    curso          : str            = Field(..., min_length=1, max_length=150)
-    fecha          : datetime.date
-    hora_inicio    : datetime.time
-    hora_fin       : datetime.time
+    laboratorio_id  : int            = Field(..., gt=0)
+    curso           : str            = Field(..., min_length=1, max_length=150)
+    fecha           : datetime.date
+    hora_inicio     : datetime.time
+    hora_fin        : datetime.time
+    num_estudiantes : Optional[int]  = Field(None, ge=1, description="Número de estudiantes — no puede superar la capacidad del laboratorio")
 
     @field_validator("hora_fin")
     @classmethod
