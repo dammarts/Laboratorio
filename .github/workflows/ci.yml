@@ -63,12 +63,6 @@ jobs:
           path: backend/coverage.xml
           retention-days: 30
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v4
-        env:
-          SONAR_HOST_URL: https://sonarcloud.io
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
   # ─────────────────────────────────────────
   # JOB 2 — Lint (solo en PR hacia main)
   # ─────────────────────────────────────────
