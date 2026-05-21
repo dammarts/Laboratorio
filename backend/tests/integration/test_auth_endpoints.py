@@ -104,7 +104,7 @@ def test_get_me_con_jwt_expirado_devuelve_401(client, usuario_admin):
         "sub": usuario_admin.usuario_id,
         "email": usuario_admin.email,
         "rol": usuario_admin.rol,
-        "exp": datetime.datetime.utcnow() - datetime.timedelta(hours=1),
+        "exp": datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=1),
     }
     expired_token = jwt.encode(payload, JWT_SECRET, algorithm=ALGORITHM)
     headers = {"Authorization": f"Bearer {expired_token}"}
