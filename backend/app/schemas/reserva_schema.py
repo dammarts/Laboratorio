@@ -10,6 +10,7 @@ class ReservaCreate(BaseModel):
     fecha: datetime.date
     hora_inicio: datetime.time
     hora_fin: datetime.time
+    num_estudiantes: Optional[int] = Field(None, ge=1, description="Número de estudiantes — no puede superar la capacidad del laboratorio")
 
     @field_validator("hora_fin")
     @classmethod
