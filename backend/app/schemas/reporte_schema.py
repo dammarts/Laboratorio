@@ -31,7 +31,7 @@ class ReporteDocente(BaseModel):
     email: str
     total_reservas: int
     laboratorios_usados: int
-    ultima_reserva: Optional[datetime.date]
+    ultima_reserva: Optional[datetime.date] = None
 
 
 class FiltrosReporte(BaseModel):

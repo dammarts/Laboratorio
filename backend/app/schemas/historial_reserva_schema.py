@@ -10,7 +10,7 @@ class HistorialReservaResponse(BaseModel):
     reserva_id: int
     usuario_id: int
     accion: str
-    detalle: Optional[str]
+    detalle: Optional[str] = None
     fecha: datetime.datetime
 
 
