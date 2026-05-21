@@ -96,6 +96,7 @@ class TestCrearLaboratorio:
             nombre="Lab Informática 101",
             ubicacion="Bloque A - Piso 1",
             capacidad_maxima=30,
+            tipo_laboratorio="INFORMATICA",
             recursos_disponibles="30 computadores",
             estado=True
         )
@@ -116,6 +117,7 @@ class TestCrearLaboratorio:
             nombre="Lab Química 301",
             ubicacion="Bloque C - Piso 3",
             capacidad_maxima=24,
+            tipo_laboratorio="QUIMICA",
             estado=True
         )
 
@@ -226,7 +228,8 @@ class TestLaboratorioSchema:
         lab = LaboratorioCreate(
             nombre="Lab Informática",
             ubicacion="Bloque A - Piso 1",
-            capacidad_maxima=30
+            capacidad_maxima=30,
+            tipo_laboratorio="INFORMATICA"
         )
         assert lab.nombre == "Lab Informática"
         assert lab.capacidad_maxima == 30

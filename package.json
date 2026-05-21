@@ -1,0 +1,27 @@
+{
+  "name": "laboratorio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valeriacaro23/Laboratorio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/valeriacaro23/Laboratorio/issues"
+  },
+  "homepage": "https://github.com/valeriacaro23/Laboratorio#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

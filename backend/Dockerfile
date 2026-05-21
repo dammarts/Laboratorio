@@ -1,19 +1,34 @@
-FROM python:3.11
+FROM python:3.11-slim
 
-# Carpeta de trabajo dentro del contenedor
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    gnupg2 \
+    ca-certificates \
+    apt-transport-https \
+    freetds-dev \
+    gcc \
+    g++ \
+    unixodbc-dev \
+    && curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft.gpg \
+    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/debian/11/prod bullseye main" \
+    > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql18 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Copiar dependencias
 COPY requirements.txt .
 
-# Instalar dependencias
-RUN pip install --no-cache-dir -r requirements.txt
+RUN grep -v "locust" requirements.txt > requirements-prod.txt && \
+    pip install --no-cache-dir -r requirements-prod.txt && \
+    rm requirements-prod.txt
 
-# Copiar todo el proyecto
 COPY . .
 
-# Exponer puerto de FastAPI
+ENV APP_ENV=production
+
 EXPOSE 8000
 
-# Comando para ejecutar la app
-CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

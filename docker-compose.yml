@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-compose
-
->>>>>>> origin/main
 services:
 
   backend:
@@ -11,41 +6,36 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DB_SERVER=db
-<<<<<<< HEAD
-      - DB_USER=sa
-      - DB_PASSWORD=ServerAdmin2026
-      - DB_NAME=reservas
-=======
-      - DB_PORT=1433
+      - DB_PORT=5432
       - DB_NAME=${DB_NAME:-reservas}
-      - DB_USER=${DB_USER:-sa}
+      - DB_USER=${DB_USER:-postgres}
       - DB_PASSWORD=${DB_PASSWORD}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - APP_ENV=${APP_ENV:-development}
     restart: unless-stopped
->>>>>>> origin/main
 
   db:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: postgres:16
     container_name: reservas_db
     environment:
-<<<<<<< HEAD
-      - MSSQL_SA_PASSWORD=ServerAdmin2026
-      - ACCEPT_EULA=Y
-=======
-      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
-      - ACCEPT_EULA=Y
-      - MSSQL_PID=Express
->>>>>>> origin/main
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME:-reservas}
     ports:
-      - "1433:1433"
+      - "5432:5432"
     volumes:
-      - sql_data:/var/opt/mssql
+      - pg_data:/var/lib/postgresql/data
       - ./database/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-reservas}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     restart: unless-stopped
 
 volumes:
-  sql_data:
+  pg_data:
