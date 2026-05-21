@@ -26,12 +26,12 @@ router = APIRouter(prefix="/reservas", tags=["reservas"])
     dependencies=[Depends(require_roles("ADMINISTRADOR", "COORDINADOR"))],
 )
 def listar_historial(
-    reserva_id     : Optional[int]  = Query(None),
-    laboratorio_id : Optional[int]  = Query(None),
-    usuario_id     : Optional[int]  = Query(None),
-    fecha_desde    : Optional[datetime.date] = Query(None),
-    fecha_hasta    : Optional[datetime.date] = Query(None),
-    db             : Session        = Depends(get_db),
+    reserva_id: Optional[int] = Query(None),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_id: Optional[int] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = HistorialFiltros(
         reserva_id=reserva_id,
@@ -50,9 +50,9 @@ def listar_historial(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def crear_reserva(
-    data    : ReservaCreate,
-    db      : Session       = Depends(get_db),
-    usuario : UsuarioActual = Depends(get_current_user),
+    data: ReservaCreate,
+    db: Session = Depends(get_db),
+    usuario: UsuarioActual = Depends(get_current_user),
 ):
     return reserva_service.crear_reserva(db, data, usuario)
 
@@ -64,12 +64,12 @@ def crear_reserva(
     dependencies=[Depends(get_current_user)],
 )
 def listar_reservas(
-    laboratorio_id     : Optional[int]         = Query(None),
-    usuario_creador_id : Optional[int]         = Query(None),
-    estado             : Optional[EstadoReserva] = Query(None),
-    fecha_desde        : Optional[datetime.date] = Query(None),
-    fecha_hasta        : Optional[datetime.date] = Query(None),
-    db                 : Session               = Depends(get_db),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_creador_id: Optional[int] = Query(None),
+    estado: Optional[EstadoReserva] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = ReservaFiltros(
         laboratorio_id=laboratorio_id,
@@ -88,8 +88,8 @@ def listar_reservas(
     dependencies=[Depends(get_current_user)],
 )
 def obtener_reserva(
-    reserva_id : int,
-    db         : Session = Depends(get_db),
+    reserva_id: int,
+    db: Session = Depends(get_db),
 ):
     return reserva_service.obtener_reserva(db, reserva_id)
 
@@ -98,13 +98,13 @@ def obtener_reserva(
     "/{reserva_id}/cancelar",
     response_model=ReservaResponse,
     status_code=status.HTTP_200_OK,
-    dependencies=[Depends(require_roles("ADMINISTRADOR","ADMIN", "COORDINADOR", "DOCENTE"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def cancelar_reserva(
-    reserva_id : int,
-    data       : ReservaCancelar,
-    db         : Session       = Depends(get_db),
-    usuario    : UsuarioActual = Depends(get_current_user),
+    reserva_id: int,
+    data: ReservaCancelar,
+    db: Session = Depends(get_db),
+    usuario: UsuarioActual = Depends(get_current_user),
 ):
     return reserva_service.cancelar_reserva(db, reserva_id, data, usuario)
 
@@ -116,9 +116,9 @@ def cancelar_reserva(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def reprogramar_reserva(
-    reserva_id : int,
-    data       : ReservaReprogramar,
-    db         : Session       = Depends(get_db),
-    usuario    : UsuarioActual = Depends(get_current_user),
+    reserva_id: int,
+    data: ReservaReprogramar,
+    db: Session = Depends(get_db),
+    usuario: UsuarioActual = Depends(get_current_user),
 ):
     return reserva_service.reprogramar_reserva(db, reserva_id, data, usuario)

@@ -16,7 +16,7 @@ import app.services.reporte_service as reporte_service
 
 router = APIRouter(prefix="/reportes", tags=["reportes"])
 
-_CAMPOS_USO     = ["laboratorio_id", "nombre", "total_reservas", "horas_ocupadas", "reservas_canceladas"]
+_CAMPOS_USO = ["laboratorio_id", "nombre", "total_reservas", "horas_ocupadas", "reservas_canceladas"]
 _CAMPOS_DOCENTE = ["usuario_id", "email", "total_reservas", "laboratorios_usados", "ultima_reserva"]
 
 
@@ -26,11 +26,11 @@ _CAMPOS_DOCENTE = ["usuario_id", "email", "total_reservas", "laboratorios_usados
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def uso_laboratorio(
-    laboratorio_id : Optional[int]           = Query(None),
-    usuario_id     : Optional[int]           = Query(None),
-    fecha_desde    : Optional[datetime.date] = Query(None),
-    fecha_hasta    : Optional[datetime.date] = Query(None),
-    db             : Session                 = Depends(get_db),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_id: Optional[int] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = FiltrosReporte(
         laboratorio_id=laboratorio_id,
@@ -47,11 +47,11 @@ def uso_laboratorio(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def uso_laboratorio_csv(
-    laboratorio_id : Optional[int]           = Query(None),
-    usuario_id     : Optional[int]           = Query(None),
-    fecha_desde    : Optional[datetime.date] = Query(None),
-    fecha_hasta    : Optional[datetime.date] = Query(None),
-    db             : Session                 = Depends(get_db),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_id: Optional[int] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = FiltrosReporte(
         laboratorio_id=laboratorio_id,
@@ -69,9 +69,9 @@ def uso_laboratorio_csv(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def ocupacion_mensual(
-    mes  : int     = Query(..., ge=1, le=12),
-    anio : int     = Query(..., ge=2000),
-    db   : Session = Depends(get_db),
+    mes: int = Query(..., ge=1, le=12),
+    anio: int = Query(..., ge=2000),
+    db: Session = Depends(get_db),
 ):
     return reporte_service.generar_ocupacion_mensual(db, mes, anio)
 
@@ -82,11 +82,11 @@ def ocupacion_mensual(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def por_docente(
-    laboratorio_id : Optional[int]           = Query(None),
-    usuario_id     : Optional[int]           = Query(None),
-    fecha_desde    : Optional[datetime.date] = Query(None),
-    fecha_hasta    : Optional[datetime.date] = Query(None),
-    db             : Session                 = Depends(get_db),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_id: Optional[int] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = FiltrosReporte(
         laboratorio_id=laboratorio_id,
@@ -103,11 +103,11 @@ def por_docente(
     dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def por_docente_csv(
-    laboratorio_id : Optional[int]           = Query(None),
-    usuario_id     : Optional[int]           = Query(None),
-    fecha_desde    : Optional[datetime.date] = Query(None),
-    fecha_hasta    : Optional[datetime.date] = Query(None),
-    db             : Session                 = Depends(get_db),
+    laboratorio_id: Optional[int] = Query(None),
+    usuario_id: Optional[int] = Query(None),
+    fecha_desde: Optional[datetime.date] = Query(None),
+    fecha_hasta: Optional[datetime.date] = Query(None),
+    db: Session = Depends(get_db),
 ):
     filtros = FiltrosReporte(
         laboratorio_id=laboratorio_id,
