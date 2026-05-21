@@ -23,7 +23,7 @@ _CAMPOS_DOCENTE = ["usuario_id", "email", "total_reservas", "laboratorios_usados
 @router.get(
     "/uso-laboratorio",
     response_model=List[ReporteUsoLaboratorio],
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def uso_laboratorio(
     laboratorio_id : Optional[int]           = Query(None),
@@ -44,7 +44,7 @@ def uso_laboratorio(
 @router.get(
     "/uso-laboratorio/csv",
     response_class=StreamingResponse,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def uso_laboratorio_csv(
     laboratorio_id : Optional[int]           = Query(None),
@@ -66,7 +66,7 @@ def uso_laboratorio_csv(
 @router.get(
     "/ocupacion-mensual",
     response_model=List[ReporteOcupacionMensual],
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def ocupacion_mensual(
     mes  : int     = Query(..., ge=1, le=12),
@@ -79,7 +79,7 @@ def ocupacion_mensual(
 @router.get(
     "/por-docente",
     response_model=List[ReporteDocente],
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def por_docente(
     laboratorio_id : Optional[int]           = Query(None),
@@ -100,7 +100,7 @@ def por_docente(
 @router.get(
     "/por-docente/csv",
     response_class=StreamingResponse,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def por_docente_csv(
     laboratorio_id : Optional[int]           = Query(None),

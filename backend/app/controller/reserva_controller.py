@@ -23,7 +23,7 @@ router = APIRouter(prefix="/reservas", tags=["reservas"])
     "/historial",
     response_model=List[HistorialReservaResponse],
     status_code=status.HTTP_200_OK,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "COORDINADOR"))],
 )
 def listar_historial(
     reserva_id     : Optional[int]  = Query(None),
@@ -47,7 +47,7 @@ def listar_historial(
     "/",
     response_model=ReservaResponse,
     status_code=status.HTTP_201_CREATED,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR", "DOCENTE"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def crear_reserva(
     data    : ReservaCreate,
@@ -98,7 +98,7 @@ def obtener_reserva(
     "/{reserva_id}/cancelar",
     response_model=ReservaResponse,
     status_code=status.HTTP_200_OK,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR", "DOCENTE"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR","ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def cancelar_reserva(
     reserva_id : int,
@@ -113,7 +113,7 @@ def cancelar_reserva(
     "/{reserva_id}/reprogramar",
     response_model=ReservaResponse,
     status_code=status.HTTP_200_OK,
-    dependencies=[Depends(require_roles("ADMIN", "COORDINADOR", "DOCENTE"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR", "DOCENTE"))],
 )
 def reprogramar_reserva(
     reserva_id : int,

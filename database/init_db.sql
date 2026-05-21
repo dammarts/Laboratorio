@@ -1,2 +1,3 @@
 -- Las tablas son creadas por SQLAlchemy (Base.metadata.create_all) al iniciar el backend.
 -- Los datos iniciales se insertan ejecutando: python seed.py
+
