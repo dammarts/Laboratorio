@@ -1,6 +1,6 @@
 from typing import List
 from sqlalchemy.orm import Session
-from sqlalchemy import func, case, text, distinct
+from sqlalchemy import func, case, distinct
 
 from app.models.reserva import Reserva, EstadoReserva
 from app.models.laboratorio import Laboratorio

@@ -44,9 +44,7 @@ def init_db():
             print("Base de datos y tablas creadas exitosamente.")
             break
         except Exception as e:
-            # 🔴 AGREGA ESTA LÍNEA JUSTO AQUÍ:
             print(f"⚠️ ERROR REAL DE CONEXIÓN: {e}")
-            
             print(f"Base de datos no lista. Reintentando... ({retries-1} intentos)")
             time.sleep(5)
             retries -= 1
