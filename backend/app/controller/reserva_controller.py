@@ -23,7 +23,7 @@ router = APIRouter(prefix="/reservas", tags=["reservas"])
     "/historial",
     response_model=List[HistorialReservaResponse],
     status_code=status.HTTP_200_OK,
-    dependencies=[Depends(require_roles("ADMINISTRADOR", "COORDINADOR"))],
+    dependencies=[Depends(require_roles("ADMINISTRADOR", "ADMIN", "COORDINADOR"))],
 )
 def listar_historial(
     reserva_id: Optional[int] = Query(None),
