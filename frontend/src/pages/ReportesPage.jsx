@@ -30,45 +30,32 @@ const ReportesPage = () => {
   const [mes, setMes] = useState(now.getMonth() + 1)
   const [anio, setAnio] = useState(now.getFullYear())
 
+  const buildFechaParams = () => {
+    const params = {}
+    if (fechaDesde) params.fecha_desde = fechaDesde
+    if (fechaHasta) params.fecha_hasta = fechaHasta
+    return params
+  }
+
   const cargar = async () => {
     setCargando(true)
     setError(null)
     setDatos([])
 
     try {
-      if (tab === 0) {
-        const params = {}
-
-        if (fechaDesde) params.fecha_desde = fechaDesde
-        if (fechaHasta) params.fecha_hasta = fechaHasta
-
-        const response = await getUsoLaboratorio(params)
-        setDatos(Array.isArray(response) ? response : [])
-
-      } else if (tab === 1) {
-
-        const response = await getOcupacionMensual(mes, anio)
-        setDatos(Array.isArray(response) ? response : [])
-
+      let response
+      if (tab === 1) {
+        response = await getOcupacionMensual(mes, anio)
+      } else if (tab === 0) {
+        response = await getUsoLaboratorio(buildFechaParams())
       } else {
-
-        const params = {}
-
-        if (fechaDesde) params.fecha_desde = fechaDesde
-        if (fechaHasta) params.fecha_hasta = fechaHasta
-
-        const response = await getReporteDocente(params)
-        setDatos(Array.isArray(response) ? response : [])
+        response = await getReporteDocente(buildFechaParams())
       }
+      setDatos(Array.isArray(response) ? response : [])
 
     } catch (err) {
       console.error(err)
-
-      setError(
-        err?.response?.data?.detail ||
-        err?.message ||
-        'Error al cargar el reporte'
-      )
+      setError(err?.response?.data?.detail || err?.message || 'Error al cargar el reporte')
 
     } finally {
       setCargando(false)
