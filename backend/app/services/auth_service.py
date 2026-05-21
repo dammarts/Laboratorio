@@ -23,7 +23,7 @@ def verify_password(plain: str, hashed: str) -> bool:
 
 def crear_access_token(data: dict) -> str:
     payload = data.copy()
-    payload["exp"] = datetime.datetime.utcnow() + datetime.timedelta(hours=ACCESS_TOKEN_EXPIRE_HOURS)
+    payload["exp"] = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=ACCESS_TOKEN_EXPIRE_HOURS)
     return jwt.encode(payload, JWT_SECRET, algorithm=ALGORITHM)
 
 

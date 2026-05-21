@@ -97,7 +97,7 @@ def test_crear_access_token_exp_es_futuro():
 
     # Assert
     payload = jwt.decode(token, JWT_SECRET, algorithms=[ALGORITHM])
-    ahora = datetime.datetime.utcnow().timestamp()
+    ahora = datetime.datetime.now(datetime.timezone.utc).timestamp()
     assert payload["exp"] > ahora
 
 

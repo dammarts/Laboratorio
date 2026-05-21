@@ -50,9 +50,9 @@ class ReservaResponse(BaseModel):
     hora_inicio: datetime.time
     hora_fin: datetime.time
     estado: EstadoReserva
-    motivo_cancelacion: Optional[str]
+    motivo_cancelacion: Optional[str] = None
     fecha_creacion: datetime.datetime
-    fecha_actualizacion: Optional[datetime.datetime]
+    fecha_actualizacion: Optional[datetime.datetime] = None
 
 
 class ReservaFiltros(BaseModel):
