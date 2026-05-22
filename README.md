@@ -13,6 +13,7 @@ Sistema centralizado para gestionar disponibilidad, reservas, control de horario
 | Frontend | https://laboratorio-theta.vercel.app |
 | Backend API | https://laboratorio-uakf.onrender.com |
 | Swagger UI | https://laboratorio-uakf.onrender.com/docs |
+| Tablero Jira | https://dammarts01.atlassian.net/jira/software/projects/SCRUM/summary |
 
 ---
 
