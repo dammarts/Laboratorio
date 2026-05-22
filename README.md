@@ -11,8 +11,8 @@ Sistema centralizado para gestionar disponibilidad, reservas, control de horario
 | Componente | URL |
 |---|---|
 | Frontend | https://laboratorio-theta.vercel.app |
-| Backend API | _pendiente — actualizar con URL Railway/Render_ |
-| Swagger UI | `<backend-url>/docs` |
+| Backend API | https://laboratorio-uakf.onrender.com |
+| Swagger UI | https://laboratorio-uakf.onrender.com/docs |
 
 ---
 
@@ -25,7 +25,7 @@ Sistema centralizado para gestionar disponibilidad, reservas, control de horario
 | Base de datos | PostgreSQL 16 (Neon en producción, Docker en local) |
 | Auth | JWT (python-jose) + bcrypt (cost 12) |
 | CI/CD | GitHub Actions + SonarCloud |
-| Despliegue | Vercel (frontend) · Railway (backend) · Neon (BD) |
+| Despliegue | Vercel (frontend) · Render (backend) · Neon (BD) |
 | Pruebas | pytest · Playwright · Locust |
 
 ---
