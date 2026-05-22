@@ -409,7 +409,9 @@ graph TD
 
 ## Diseño de pantallas
 
-Los mockups del sistema están disponibles en Figma. Las pantallas diseñadas cubren el flujo principal:
+Los mockups del sistema están disponibles en Excalidraw: [Ver mockups interactivos](https://excalidraw.com/#json=PVAHmGT9nwOw8iROjgQwg,sqTnuOUh8TtpOrJ7Ox4zgQ)
+
+Las pantallas diseñadas cubren el flujo principal:
 
 | Pantalla | Descripción |
 |---|---|
