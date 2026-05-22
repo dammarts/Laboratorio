@@ -19,6 +19,7 @@ const Navbar = () => {
     { path: '/reservas/nueva', label: 'Nueva reserva', visible: true },
     { path: '/historial', label: 'Historial', visible: true },
     { path: '/reportes', label: 'Reportes', visible: puedeVerReportes },
+    { path: '/admin/horarios', label: 'Horarios', visible: puedeVerReportes },
     { path: '/admin/usuarios', label: 'Usuarios', visible: esAdmin },
   ]
 

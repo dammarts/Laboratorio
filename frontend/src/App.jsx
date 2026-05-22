@@ -7,6 +7,7 @@ import NuevaReservaPage from './pages/NuevaReservaPage'
 import HistorialPage from './pages/HistorialPage'
 import ReportesPage from './pages/ReportesPage'
 import UsuariosPage from './pages/UsuariosPage'
+import HorariosPage from './pages/HorariosPage'
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
           <Route
             path="/admin/usuarios"
             element={<PrivateRoute roles={['ADMIN']}><UsuariosPage /></PrivateRoute>}
+          />
+          <Route
+            path="/admin/horarios"
+            element={<PrivateRoute roles={['ADMIN', 'COORDINADOR']}><HorariosPage /></PrivateRoute>}
           />
 
           <Route path="*" element={<Navigate to="/login" replace />} />
