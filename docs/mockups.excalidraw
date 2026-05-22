@@ -1,0 +1,642 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "label-login", "type": "text", "x": 60, "y": 10, "width": 200, "height": 25,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "1. Login", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 1, "version": 1,
+      "versionNonce": 1, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "1. Login"
+    },
+    {
+      "id": "bg-login", "type": "rectangle", "x": 20, "y": 40, "width": 300, "height": 420,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 2, "version": 1, "versionNonce": 2,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-login", "type": "rectangle", "x": 20, "y": 40, "width": 300, "height": 48,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 3, "version": 1, "versionNonce": 3,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-login-txt", "type": "text", "x": 35, "y": 55, "width": 220, "height": 20,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Sistema de Reservas", "fontSize": 14, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 4, "version": 1,
+      "versionNonce": 4, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 14, "containerId": null, "originalText": "Sistema de Reservas"
+    },
+    {
+      "id": "card-login", "type": "rectangle", "x": 55, "y": 130, "width": 230, "height": 290,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#f8fafc",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 5, "version": 1, "versionNonce": 5,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "login-title", "type": "text", "x": 95, "y": 148, "width": 150, "height": 22,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Iniciar Sesión", "fontSize": 16, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 6, "version": 1,
+      "versionNonce": 6, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 16, "containerId": null, "originalText": "Iniciar Sesión"
+    },
+    {
+      "id": "lbl-email", "type": "text", "x": 70, "y": 192, "width": 60, "height": 16,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Email", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 7, "version": 1,
+      "versionNonce": 7, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Email"
+    },
+    {
+      "id": "inp-email", "type": "rectangle", "x": 70, "y": 210, "width": 200, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 8, "version": 1, "versionNonce": 8,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-email-ph", "type": "text", "x": 78, "y": 220, "width": 180, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "usuario@universidad.edu", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 9, "version": 1,
+      "versionNonce": 9, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "usuario@universidad.edu"
+    },
+    {
+      "id": "lbl-pass", "type": "text", "x": 70, "y": 256, "width": 80, "height": 16,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Contraseña", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 10, "version": 1,
+      "versionNonce": 10, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Contraseña"
+    },
+    {
+      "id": "inp-pass", "type": "rectangle", "x": 70, "y": 274, "width": 200, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 11, "version": 1, "versionNonce": 11,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-pass-ph", "type": "text", "x": 78, "y": 284, "width": 60, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "••••••••", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 12, "version": 1,
+      "versionNonce": 12, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "••••••••"
+    },
+    {
+      "id": "btn-login", "type": "rectangle", "x": 70, "y": 326, "width": 200, "height": 38,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 13, "version": 1, "versionNonce": 13,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "btn-login-txt", "type": "text", "x": 120, "y": 338, "width": 100, "height": 16,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Ingresar", "fontSize": 13, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 14, "version": 1,
+      "versionNonce": 14, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 13, "containerId": null, "originalText": "Ingresar"
+    },
+
+    {
+      "id": "label-dash", "type": "text", "x": 400, "y": 10, "width": 250, "height": 25,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "2. Dashboard — Mis Reservas", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 20, "version": 1,
+      "versionNonce": 20, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "2. Dashboard — Mis Reservas"
+    },
+    {
+      "id": "bg-dash", "type": "rectangle", "x": 380, "y": 40, "width": 500, "height": 420,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#f0f2f5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 21, "version": 1, "versionNonce": 21,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-dash", "type": "rectangle", "x": 380, "y": 40, "width": 500, "height": 48,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 22, "version": 1, "versionNonce": 22,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-dash-logo", "type": "text", "x": 395, "y": 55, "width": 180, "height": 20,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Sistema de Reservas", "fontSize": 14, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 23, "version": 1,
+      "versionNonce": 23, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 14, "containerId": null, "originalText": "Sistema de Reservas"
+    },
+    {
+      "id": "nav-dash-links", "type": "text", "x": 590, "y": 55, "width": 270, "height": 20,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorios   Reservas   Reportes   Salir", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 24, "version": 1,
+      "versionNonce": 24, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Laboratorios   Reservas   Reportes   Salir"
+    },
+    {
+      "id": "dash-header", "type": "rectangle", "x": 396, "y": 104, "width": 468, "height": 44,
+      "angle": 0, "strokeColor": "transparent", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 25, "version": 1, "versionNonce": 25,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "dash-h-title", "type": "text", "x": 396, "y": 108, "width": 150, "height": 22,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Mis Reservas", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 26, "version": 1,
+      "versionNonce": 26, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "Mis Reservas"
+    },
+    {
+      "id": "btn-nueva", "type": "rectangle", "x": 748, "y": 106, "width": 116, "height": 34,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 27, "version": 1, "versionNonce": 27,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "btn-nueva-txt", "type": "text", "x": 758, "y": 116, "width": 96, "height": 16,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "+ Nueva Reserva", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 28, "version": 1,
+      "versionNonce": 28, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "+ Nueva Reserva"
+    },
+    {
+      "id": "table-dash", "type": "rectangle", "x": 396, "y": 158, "width": 468, "height": 280,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 29, "version": 1, "versionNonce": 29,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "thead-dash", "type": "rectangle", "x": 396, "y": 158, "width": 468, "height": 36,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#f8fafc",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 30, "version": 1, "versionNonce": 30,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "thead-txt", "type": "text", "x": 408, "y": 168, "width": 440, "height": 16,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio          Fecha         Hora         Estado        Acciones", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 31, "version": 1,
+      "versionNonce": 31, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Laboratorio          Fecha         Hora         Estado        Acciones"
+    },
+    {
+      "id": "row1", "type": "text", "x": 408, "y": 206, "width": 440, "height": 16,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Lab A-201               2026-05-22    08:00-10:00   CONFIRMADA", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 32, "version": 1,
+      "versionNonce": 32, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Lab A-201               2026-05-22    08:00-10:00   CONFIRMADA"
+    },
+    {
+      "id": "badge-conf", "type": "rectangle", "x": 718, "y": 200, "width": 80, "height": 22,
+      "angle": 0, "strokeColor": "#166534", "backgroundColor": "#f0fdf4",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 33, "version": 1, "versionNonce": 33,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "badge-conf-txt", "type": "text", "x": 724, "y": 205, "width": 68, "height": 14,
+      "angle": 0, "strokeColor": "#166534", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "CONFIRMADA", "fontSize": 9, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 34, "version": 1,
+      "versionNonce": 34, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 9, "containerId": null, "originalText": "CONFIRMADA"
+    },
+    {
+      "id": "row2", "type": "text", "x": 408, "y": 240, "width": 440, "height": 16,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Lab B-105               2026-05-20    14:00-16:00   CANCELADA", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 35, "version": 1,
+      "versionNonce": 35, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Lab B-105               2026-05-20    14:00-16:00   CANCELADA"
+    },
+    {
+      "id": "badge-can", "type": "rectangle", "x": 718, "y": 234, "width": 72, "height": 22,
+      "angle": 0, "strokeColor": "#dc2626", "backgroundColor": "#fef2f2",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 36, "version": 1, "versionNonce": 36,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "badge-can-txt", "type": "text", "x": 726, "y": 239, "width": 56, "height": 14,
+      "angle": 0, "strokeColor": "#dc2626", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "CANCELADA", "fontSize": 9, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 37, "version": 1,
+      "versionNonce": 37, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 9, "containerId": null, "originalText": "CANCELADA"
+    },
+    {
+      "id": "row3", "type": "text", "x": 408, "y": 274, "width": 440, "height": 16,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Lab C-302               2026-05-25    10:00-12:00   PENDIENTE", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 38, "version": 1,
+      "versionNonce": 38, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Lab C-302               2026-05-25    10:00-12:00   PENDIENTE"
+    },
+
+    {
+      "id": "label-form", "type": "text", "x": 940, "y": 10, "width": 260, "height": 25,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "3. Nueva Reserva", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 50, "version": 1,
+      "versionNonce": 50, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "3. Nueva Reserva"
+    },
+    {
+      "id": "bg-form", "type": "rectangle", "x": 920, "y": 40, "width": 380, "height": 420,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#f0f2f5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 51, "version": 1, "versionNonce": 51,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-form", "type": "rectangle", "x": 920, "y": 40, "width": 380, "height": 48,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 52, "version": 1, "versionNonce": 52,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-form-txt", "type": "text", "x": 935, "y": 55, "width": 180, "height": 20,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Sistema de Reservas", "fontSize": 14, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 53, "version": 1,
+      "versionNonce": 53, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 14, "containerId": null, "originalText": "Sistema de Reservas"
+    },
+    {
+      "id": "form-card", "type": "rectangle", "x": 940, "y": 104, "width": 340, "height": 340,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 54, "version": 1, "versionNonce": 54,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "form-title", "type": "text", "x": 960, "y": 116, "width": 180, "height": 22,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Nueva Reserva", "fontSize": 16, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 55, "version": 1,
+      "versionNonce": 55, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 16, "containerId": null, "originalText": "Nueva Reserva"
+    },
+    {
+      "id": "lbl-lab", "type": "text", "x": 960, "y": 152, "width": 100, "height": 14,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 56, "version": 1,
+      "versionNonce": 56, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Laboratorio"
+    },
+    {
+      "id": "sel-lab", "type": "rectangle", "x": 960, "y": 168, "width": 300, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 57, "version": 1, "versionNonce": 57,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "sel-lab-txt", "type": "text", "x": 968, "y": 178, "width": 200, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Seleccionar laboratorio ▾", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 58, "version": 1,
+      "versionNonce": 58, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Seleccionar laboratorio ▾"
+    },
+    {
+      "id": "lbl-fecha", "type": "text", "x": 960, "y": 214, "width": 80, "height": 14,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Fecha", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 59, "version": 1,
+      "versionNonce": 59, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Fecha"
+    },
+    {
+      "id": "inp-fecha", "type": "rectangle", "x": 960, "y": 230, "width": 300, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 60, "version": 1, "versionNonce": 60,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-fecha-txt", "type": "text", "x": 968, "y": 240, "width": 120, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "AAAA-MM-DD", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 61, "version": 1,
+      "versionNonce": 61, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "AAAA-MM-DD"
+    },
+    {
+      "id": "lbl-horas", "type": "text", "x": 960, "y": 276, "width": 120, "height": 14,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Hora inicio / fin", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 62, "version": 1,
+      "versionNonce": 62, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "Hora inicio / fin"
+    },
+    {
+      "id": "inp-hi", "type": "rectangle", "x": 960, "y": 292, "width": 140, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 63, "version": 1, "versionNonce": 63,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-hi-txt", "type": "text", "x": 968, "y": 302, "width": 60, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "08:00", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 64, "version": 1,
+      "versionNonce": 64, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "08:00"
+    },
+    {
+      "id": "inp-hf", "type": "rectangle", "x": 1120, "y": 292, "width": 140, "height": 34,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 65, "version": 1, "versionNonce": 65,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-hf-txt", "type": "text", "x": 1128, "y": 302, "width": 60, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "10:00", "fontSize": 12, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 66, "version": 1,
+      "versionNonce": 66, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 12, "containerId": null, "originalText": "10:00"
+    },
+    {
+      "id": "btn-crear", "type": "rectangle", "x": 960, "y": 346, "width": 300, "height": 38,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 67, "version": 1, "versionNonce": 67,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "btn-crear-txt", "type": "text", "x": 1050, "y": 357, "width": 120, "height": 16,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Crear Reserva", "fontSize": 13, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 68, "version": 1,
+      "versionNonce": 68, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 13, "containerId": null, "originalText": "Crear Reserva"
+    },
+
+    {
+      "id": "label-rep", "type": "text", "x": 1380, "y": 10, "width": 150, "height": 25,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "4. Reportes", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 80, "version": 1,
+      "versionNonce": 80, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "4. Reportes"
+    },
+    {
+      "id": "bg-rep", "type": "rectangle", "x": 1360, "y": 40, "width": 500, "height": 420,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#f0f2f5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 81, "version": 1, "versionNonce": 81,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-rep", "type": "rectangle", "x": 1360, "y": 40, "width": 500, "height": 48,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 82, "version": 1, "versionNonce": 82,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "nav-rep-txt", "type": "text", "x": 1375, "y": 55, "width": 180, "height": 20,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Sistema de Reservas", "fontSize": 14, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 83, "version": 1,
+      "versionNonce": 83, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 14, "containerId": null, "originalText": "Sistema de Reservas"
+    },
+    {
+      "id": "rep-title", "type": "text", "x": 1376, "y": 104, "width": 100, "height": 22,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Reportes", "fontSize": 18, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 84, "version": 1,
+      "versionNonce": 84, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 18, "containerId": null, "originalText": "Reportes"
+    },
+    {
+      "id": "tabs-rep", "type": "rectangle", "x": 1376, "y": 134, "width": 468, "height": 34,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 85, "version": 1, "versionNonce": 85,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "tab1-active", "type": "rectangle", "x": 1376, "y": 134, "width": 148, "height": 34,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 86, "version": 1, "versionNonce": 86,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "tab1-txt", "type": "text", "x": 1390, "y": 144, "width": 120, "height": 14,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Uso por laboratorio", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 87, "version": 1,
+      "versionNonce": 87, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Uso por laboratorio"
+    },
+    {
+      "id": "tab2-txt", "type": "text", "x": 1540, "y": 144, "width": 120, "height": 14,
+      "angle": 0, "strokeColor": "#666666", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Ocupación mensual", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 88, "version": 1,
+      "versionNonce": 88, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Ocupación mensual"
+    },
+    {
+      "id": "tab3-txt", "type": "text", "x": 1676, "y": 144, "width": 80, "height": 14,
+      "angle": 0, "strokeColor": "#666666", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Por docente", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 89, "version": 1,
+      "versionNonce": 89, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Por docente"
+    },
+    {
+      "id": "filtros-rep", "type": "rectangle", "x": 1376, "y": 180, "width": 468, "height": 44,
+      "angle": 0, "strokeColor": "transparent", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 90, "version": 1, "versionNonce": 90,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-desde", "type": "rectangle", "x": 1376, "y": 186, "width": 130, "height": 32,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 91, "version": 1, "versionNonce": 91,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-desde-txt", "type": "text", "x": 1384, "y": 195, "width": 100, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Fecha desde", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 92, "version": 1,
+      "versionNonce": 92, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Fecha desde"
+    },
+    {
+      "id": "inp-hasta", "type": "rectangle", "x": 1516, "y": 186, "width": 130, "height": 32,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 93, "version": 1, "versionNonce": 93,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "inp-hasta-txt", "type": "text", "x": 1524, "y": 195, "width": 100, "height": 14,
+      "angle": 0, "strokeColor": "#adb5bd", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Fecha hasta", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 94, "version": 1,
+      "versionNonce": 94, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Fecha hasta"
+    },
+    {
+      "id": "btn-buscar", "type": "rectangle", "x": 1656, "y": 186, "width": 76, "height": 32,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "#185FA5",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 95, "version": 1, "versionNonce": 95,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "btn-buscar-txt", "type": "text", "x": 1672, "y": 195, "width": 44, "height": 14,
+      "angle": 0, "strokeColor": "#ffffff", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Buscar", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 96, "version": 1,
+      "versionNonce": 96, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Buscar"
+    },
+    {
+      "id": "rep-table", "type": "rectangle", "x": 1376, "y": 238, "width": 468, "height": 200,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#ffffff",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 97, "version": 1, "versionNonce": 97,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "rep-thead", "type": "rectangle", "x": 1376, "y": 238, "width": 468, "height": 34,
+      "angle": 0, "strokeColor": "#e5e7eb", "backgroundColor": "#f8fafc",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 98, "version": 1, "versionNonce": 98,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "rep-thead-txt", "type": "text", "x": 1388, "y": 248, "width": 440, "height": 14,
+      "angle": 0, "strokeColor": "#555555", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio              Total reservas     Horas ocupadas     Canceladas", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 99, "version": 1,
+      "versionNonce": 99, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Laboratorio              Total reservas     Horas ocupadas     Canceladas"
+    },
+    {
+      "id": "rep-r1", "type": "text", "x": 1388, "y": 286, "width": 440, "height": 14,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio A-201              42                     84.0 h                   3", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 100, "version": 1,
+      "versionNonce": 100, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Laboratorio A-201              42                     84.0 h                   3"
+    },
+    {
+      "id": "rep-r2", "type": "text", "x": 1388, "y": 316, "width": 440, "height": 14,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio B-105              28                     56.0 h                   1", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 101, "version": 1,
+      "versionNonce": 101, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Laboratorio B-105              28                     56.0 h                   1"
+    },
+    {
+      "id": "rep-r3", "type": "text", "x": 1388, "y": 346, "width": 440, "height": 14,
+      "angle": 0, "strokeColor": "#1a1a2e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "Laboratorio C-302              15                     30.0 h                   0", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "left", "verticalAlign": "top", "seed": 102, "version": 1,
+      "versionNonce": 102, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "Laboratorio C-302              15                     30.0 h                   0"
+    },
+    {
+      "id": "btn-csv", "type": "rectangle", "x": 1744, "y": 186, "width": 60, "height": 32,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "seed": 103, "version": 1, "versionNonce": 103,
+      "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false
+    },
+    {
+      "id": "btn-csv-txt", "type": "text", "x": 1754, "y": 195, "width": 40, "height": 14,
+      "angle": 0, "strokeColor": "#185FA5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "strokeStyle": "solid", "roughness": 0,
+      "opacity": 100, "text": "⬇ CSV", "fontSize": 11, "fontFamily": 2,
+      "textAlign": "center", "verticalAlign": "top", "seed": 104, "version": 1,
+      "versionNonce": 104, "isDeleted": false, "boundElements": null, "updated": 1,
+      "link": null, "locked": false, "baseline": 11, "containerId": null, "originalText": "⬇ CSV"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#f0f2f5",
+    "gridSize": null
+  },
+  "files": {}
+}
