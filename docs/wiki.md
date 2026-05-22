@@ -233,7 +233,9 @@ locust -f tests/load/locustfile.py --host=http://localhost:8000
 
 ## API REST documentada
 
-La documentación completa está disponible en Swagger UI al levantar el proyecto:
+La documentación completa está disponible en Swagger UI:
+
+**Producción:** https://laboratorio-uakf.onrender.com/docs
 
 **Local:** http://localhost:8000/docs
 
@@ -265,6 +267,7 @@ La documentación completa está disponible en Swagger UI al levantar el proyect
 | GET | /reservas/ | Listar reservas propias | Autenticado |
 | GET | /reservas/{id} | Obtener reserva por ID | Autenticado |
 | PATCH | /reservas/{id}/cancelar | Cancelar reserva con motivo | Autenticado |
+| PATCH | /reservas/{id}/reprogramar | Reprogramar fecha/hora de reserva | Autenticado |
 
 #### Autenticación y Usuarios
 | Método | Endpoint | Descripción | Auth |
@@ -273,6 +276,12 @@ La documentación completa está disponible en Swagger UI al levantar el proyect
 | POST | /auth/register | Registrar nuevo usuario | Solo Admin |
 | GET | /usuarios/ | Listar todos los usuarios | Solo Admin |
 | GET | /usuarios/me | Perfil del usuario autenticado | Autenticado |
+
+#### Historial y Auditoría
+| Método | Endpoint | Descripción | Auth |
+|---|---|---|---|
+| GET | /historial/ | Consultar historial de acciones | Admin, Coordinador |
+| GET | /reservas/ | Listar reservas con filtros (lab, estado, fechas) | Autenticado |
 
 #### Reportes
 | Método | Endpoint | Descripción | Auth |
@@ -379,7 +388,7 @@ graph TD
     Services[Services — axios]
   end
 
-  subgraph Backend["Backend — FastAPI (Railway)"]
+  subgraph Backend["Backend — FastAPI (Render)"]
     Controllers[Controllers — Routers]
     ServicesB[Services — Lógica de negocio]
     Repos[Repositories — SQLAlchemy]
@@ -416,13 +425,14 @@ Las pantallas diseñadas cubren el flujo principal:
 | Pantalla | Descripción |
 |---|---|
 | Login | Formulario de acceso con email y contraseña |
-| Laboratorios | Listado de laboratorios disponibles con estado y capacidad |
+| Laboratorios | Listado de laboratorios — ADMIN puede crear, editar y activar/desactivar |
 | Nueva reserva | Selección de lab, fecha, franja horaria y curso |
-| Historial | Tabla de reservas con filtro por estado y opción de cancelar |
+| Historial | Tabla de reservas con filtro por estado, opción de cancelar y reprogramar |
 | Reportes | Tres pestañas: uso por lab, ocupación mensual, por docente — exportación CSV |
+| Horarios | Panel ADMIN/COORDINADOR: configurar horarios por lab, bloquear y desbloquear fechas |
 | Gestión de usuarios | Panel exclusivo ADMIN: lista de usuarios y creación de nuevos |
 
-> El sistema implementa navegación condicional por rol: los usuarios DOCENTE no ven Reportes ni Usuarios; los ADMIN tienen acceso completo.
+> El sistema implementa navegación condicional por rol: DOCENTE accede a Laboratorios, Nueva Reserva e Historial; COORDINADOR agrega Reportes y Horarios; ADMIN tiene acceso completo.
 
 ---
 
@@ -455,7 +465,7 @@ Para mantener la aplicación activa se proponen los siguientes modelos:
 | Riesgo | Probabilidad | Impacto | Mitigación |
 |---|---|---|---|
 | Solapamiento de reservas por concurrencia | Media | Alto | Transacciones atómicas en BD + validación en service |
-| Pérdida de datos | Baja | Alto | Backups automáticos de SQL Server + volúmenes Docker |
+| Pérdida de datos | Baja | Alto | Backups automáticos en Neon (PostgreSQL) + volúmenes Docker |
 | Acceso no autorizado | Media | Alto | JWT + control de roles + HTTPS en producción |
 | Baja adopción por docentes | Alta | Medio | UX simple + capacitación + guías de usuario |
 | Caída del servidor en producción | Baja | Alto | Docker restart policy + monitoreo con alertas |
