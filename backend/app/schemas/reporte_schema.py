@@ -31,11 +31,7 @@ class ReporteDocente(BaseModel):
     email: str
     total_reservas: int
     laboratorios_usados: int
-<<<<<<< HEAD
     ultima_reserva: Optional[datetime.date] = None
-=======
-    ultima_reserva: Optional[datetime.date]
->>>>>>> 2ceaef4 (style(schemas): corregir alineamiento E221 para pasar lint de ruff)
 
 
 class FiltrosReporte(BaseModel):

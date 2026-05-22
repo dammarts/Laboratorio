@@ -10,11 +10,7 @@ class HistorialReservaResponse(BaseModel):
     reserva_id: int
     usuario_id: int
     accion: str
-<<<<<<< HEAD
     detalle: Optional[str] = None
-=======
-    detalle: Optional[str]
->>>>>>> 2ceaef4 (style(schemas): corregir alineamiento E221 para pasar lint de ruff)
     fecha: datetime.datetime
 
 
