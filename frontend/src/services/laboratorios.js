@@ -7,7 +7,7 @@ export const getLaboratorios = (params = {}) =>
 
 // GET /laboratorios/{id}
 export const getLaboratorio = (id) =>
-  api.get(`/laboratorios/${id}`).then((r) => r.data)
+  api.get(`/laboratorios/${Number(id)}`).then((r) => r.data)
 
 // POST /laboratorios/
 export const crearLaboratorio = (data) =>
@@ -16,8 +16,8 @@ export const crearLaboratorio = (data) =>
 
 // PUT /laboratorios/{id}
 export const actualizarLaboratorio = (id, data) =>
-  api.put(`/laboratorios/${id}`, data).then((r) => r.data)
+  api.put(`/laboratorios/${Number(id)}`, data).then((r) => r.data)
 
 // PATCH /laboratorios/{id}/estado — activa/desactiva
 export const toggleEstadoLaboratorio = (id) =>
-  api.patch(`/laboratorios/${id}/estado`).then((r) => r.data)
+  api.patch(`/laboratorios/${Number(id)}/estado`).then((r) => r.data)
