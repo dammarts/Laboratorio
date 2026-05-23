@@ -17,9 +17,9 @@ async function obtenerToken(email, password) {
 
 async function loginEnUI(page, email, password) {
   await page.goto('/login');
-  await page.getByLabel(/correo|email/i).fill(email);
-  await page.getByLabel(/contraseña|password/i).fill(password);
-  await page.getByRole('button', { name: /ingresar|login|entrar/i }).click();
+  await page.locator('input[type="email"]').fill(email);
+  await page.locator('input[type="password"]').fill(password);
+  await page.getByRole('button', { name: /iniciar.*sesi[oó]n|ingresar|login|entrar/i }).click();
 }
 
 module.exports = { obtenerToken, loginEnUI };

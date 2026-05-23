@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/LoginPage');
 
-const ADMIN_EMAIL = process.env.E2E_ADMIN_EMAIL || 'admin@uni.edu';
+const ADMIN_EMAIL = process.env.E2E_ADMIN_EMAIL || 'admin@laboratorio.com';
 const ADMIN_PASSWORD = process.env.E2E_ADMIN_PASSWORD || 'Admin123!';
 
 test.describe('Autenticación', () => {

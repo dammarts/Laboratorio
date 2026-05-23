@@ -1,10 +1,10 @@
 class LoginPage {
   constructor(page) {
     this.page = page;
-    this.inputEmail = page.getByLabel(/correo|email/i);
-    this.inputPassword = page.getByLabel(/contraseña|password/i);
-    this.btnSubmit = page.getByRole('button', { name: /ingresar|login|entrar/i });
-    this.mensajeError = page.getByRole('alert');
+    this.inputEmail = page.locator('input[type="email"]');
+    this.inputPassword = page.locator('input[type="password"]');
+    this.btnSubmit = page.getByRole('button', { name: /iniciar.*sesi[oó]n|ingresar|login|entrar/i });
+    this.mensajeError = page.getByTestId('login-error');
   }
 
   async goto() {

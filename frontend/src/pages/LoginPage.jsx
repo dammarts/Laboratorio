@@ -23,7 +23,7 @@ const LoginPage = () => {
         <h1 style={s.title}>Bienvenido</h1>
         <p style={s.sub}>Sistema de reservas de laboratorios</p>
  
-        {error && <div style={s.error}>{error}</div>}
+        {error && <div style={s.error} data-testid="login-error">{error}</div>}
  
         <form onSubmit={handleSubmit}>
           <label style={s.label}>Correo institucional</label>
